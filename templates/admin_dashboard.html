@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrack | Dashboard</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="nav-left">
+
+            <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
+                alt="EduTrack Logo"
+                class="navbar-logo">
+
+        </div>
+
+        <div class="nav-right">
+
+            <div class="profile-card">
+
+                <div class="profile-icon">
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+                <div>
+
+                    <h4>Mashood Ahmed Shariff</h4>
+
+                    <p>Administrator</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ================= PAGE TITLE ================= -->
+
+    <section class="page-title">
+
+        <h2>Welcome Back 👋</h2>
+
+        <p>
+            Manage learners, monitor learning paths, and track their progress
+            from one centralized dashboard.
+        </p>
+
+    </section>
+
+    <!-- ================= DASHBOARD CARDS ================= -->
+
+    <section class="dashboard">
+
+        <div class="card students-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-user-graduate"></i>
+            </div>
+
+            <h2>{{ total_learners }}</h2>
+
+            <p>Registered Learners</p>
+
+            <span>Total enrolled learners</span>
+
+        </div>
+
+        <div class="card courses-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <h2>{{ total_skills }}</h2>
+
+            <p>Learning Paths</p>
+
+            <span>Available skill tracks</span>
+
+        </div>
+
+        <div class="card emails-card">
+
+            <div class="card-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <h2>{{ highest_points }}</h2>
+
+            <p>Highest Score</p>
+
+            <span>Top learner points</span>
+
+        </div>
+
+    </section>
+
+    <!-- ================= TOOLBAR ================= -->
+
+    <section class="toolbar">
+
+        <div class="left-buttons">
+
+            <a href="{{ url_for('register_learner') }}"
+               class="add-btn">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Register Learner
+
+            </a>
+
+            <a href="{{ url_for('export_csv') }}"
+               class="export-btn"
+               onclick="return confirm('Download learner records?')">
+
+                <i class="fa-solid fa-file-export"></i>
+
+                Export Learners
+
+            </a>
+
+        </div>
+
+        <form action="{{ url_for('home') }}"
+              method="GET"
+              class="search-form">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search learner by name, email or skill..."
+                value="{{ search_query if search_query else '' }}">
+
+            <button type="submit"
+                    class="search-btn">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                Search
+
+            </button>
+
+            <a href="{{ url_for('home') }}"
+               class="clear-btn">
+
+                <i class="fa-solid fa-xmark"></i>
+
+                Clear
+
+            </a>
+
+        </form>
+
+    </section>
+
+    <!-- ================= LEARNERS TABLE ================= -->
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th><i class="fa-solid fa-user"></i> Learner</th>
+
+            <th><i class="fa-solid fa-envelope"></i> Email</th>
+
+            <th><i class="fa-solid fa-book-open"></i> Skill</th>
+
+            <th><i class="fa-solid fa-chart-line"></i> Level</th>
+
+            <th><i class="fa-solid fa-trophy"></i> Points</th>
+
+            <th><i class="fa-solid fa-gear"></i> Actions</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if learners %}
+
+            {% for learner in learners %}
+
+            <tr>
+
+                <td>{{ learner["id"] }}</td>
+
+                <td>{{ learner["name"] }}</td>
+
+                <td>{{ learner["email"] }}</td>
+
+                <td>{{ learner["skill"] }}</td>
+
+                <td>{{ learner["level"] }}</td>
+
+                <td>{{ learner["points"] }}</td>
+
+                <td>
+
+                    <a href="{{ url_for('edit_learner', id=learner['id']) }}"
+                       class="edit-btn">
+
+                        <i class="fa-solid fa-pen"></i>
+
+                        Edit
+
+                    </a>
+
+                    <a href="{{ url_for('delete_learner', id=learner['id']) }}"
+                       class="delete-btn"
+                       onclick="return confirm('Delete this learner?')">
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Remove
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+
+                <td colspan="7">
+
+                    <div class="no-data">
+
+                        <i class="fa-solid fa-users-slash fa-3x"></i>
+
+                        <h3>No Learners Found</h3>
+
+                        <p>
+                            Start by registering your first learner to begin
+                            tracking progress.
+                        </p>
+
+                        <a href="{{ url_for('register_learner') }}"
+                           class="add-btn">
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            Register First Learner
+
+                        </a>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+        {% endif %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 <strong>EduTrack</strong>
+
+        <br>
+
+        AI-Powered Learning Platform
+
+        <br><br>
+
+        Developed by <strong>Mashood Ahmed Shariff</strong>
+
+    </p>
+
+</footer>
+
+</body>
+</html>

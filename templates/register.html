@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrack | Register Learner</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Brand -->
+
+    <div class="logo-container register-logo">
+
+        <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
+             alt="EduTrack Logo"
+             class="logo">
+
+        <div>
+
+            <h1>EduTrack</h1>
+
+            <p class="logo-tagline">
+                AI-Powered Learning Platform
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Heading -->
+
+    <section class="page-title">
+
+        <h2>
+            <i class="fa-solid fa-user-plus"></i>
+            Register New Learner
+        </h2>
+
+        <p>
+            Add a learner to EduTrack and begin tracking their
+            learning journey from a single dashboard.
+        </p>
+
+    </section>
+
+
+    <!-- Registration Form -->
+
+    <section class="form-container">
+
+        <form action="{{ url_for('register_learner') }}"
+              method="POST">
+
+            <label for="learner_name">
+                <i class="fa-solid fa-user"></i>
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="learner_name"
+                name="learner_name"
+                placeholder="John Doe"
+                maxlength="100"
+                autocomplete="name"
+                required>
+
+
+            <label for="learner_email">
+                <i class="fa-solid fa-envelope"></i>
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="learner_email"
+                name="learner_email"
+                placeholder="john@example.com"
+                autocomplete="email"
+                required>
+
+
+            <label for="learner_password">
+                <i class="fa-solid fa-lock"></i>
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="learner_password"
+                name="learner_password"
+                placeholder="Create a secure password"
+                autocomplete="new-password"
+                required>
+
+
+            <label for="learner_dob">
+                <i class="fa-solid fa-calendar-days"></i>
+                Date of Birth
+            </label>
+
+            <input
+                type="date"
+                id="learner_dob"
+                name="learner_dob"
+                required>
+
+
+            <label for="learner_skill">
+                <i class="fa-solid fa-book-open"></i>
+                Learning Path
+            </label>
+
+            <select
+                id="learner_skill"
+                name="learner_skill"
+                required>
+
+                <option value="">Choose Learning Path</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="Full Stack Web Development">Full Stack Web Development</option>
+                <option value="AI & Machine Learning">AI & Machine Learning</option>
+                <option value="AWS Cloud">AWS Cloud</option>
+                <option value="SQL & Databases">SQL & Databases</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Cyber Security">Cyber Security</option>
+
+            </select>
+
+
+            <label for="learner_level">
+                <i class="fa-solid fa-chart-line"></i>
+                Skill Level
+            </label>
+
+            <select
+                id="learner_level"
+                name="learner_level"
+                required>
+
+                <option value="">Choose Skill Level</option>
+
+                <option value="Beginner">Beginner</option>
+
+                <option value="Intermediate">Intermediate</option>
+
+                <option value="Advanced">Advanced</option>
+
+            </select>
+
+
+            <div class="button-group">
+
+                <button
+                    type="submit"
+                    class="add-btn">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Register Learner
+
+                </button>
+
+
+                <a href="{{ url_for('home') }}"
+                   class="outline-btn">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Dashboard
+
+                </a>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</div>
+
+
+<footer class="footer">
+
+    <p>
+
+        © 2026 <strong>EduTrack</strong>
+
+        <br>
+
+        AI-Powered Learning Platform
+
+        <br><br>
+
+        Developed by <strong>Mashood Ahmed Shariff</strong>
+
+    </p>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduTrack | AI-Powered Learning Platform</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ==========================
+     NAVBAR
+=========================== -->
+
+<header class="landing-navbar">
+
+    <div class="landing-logo">
+
+        <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
+             alt="EduTrack Logo">
+
+    </div>
+
+    <nav>
+
+        <ul class="landing-menu">
+
+            <li><a href="#">Home</a></li>
+
+            <li><a href="#features">Features</a></li>
+
+            <li><a href="#courses">Courses</a></li>
+
+            <li><a href="#about">About</a></li>
+
+        </ul>
+
+    </nav>
+
+    <div class="landing-buttons">
+
+        <a href="/learner/login" class="btn-outline">
+            Login
+        </a>
+
+        <a href="/learner/register" class="btn-primary">
+            Get Started
+        </a>
+
+    </div>
+
+</header>
+
+</body>
+</html>
