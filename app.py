@@ -1,12 +1,15 @@
 # Import the required modules
+from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import csv
 import io
 from datetime import date
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from flask import Flask, render_template, request, redirect, url_for, make_response, session
 
 # Create the Flask application
 app = Flask(__name__)
+
+app.secret_key = "EduTrack@2026!Mashood#Flask$123"
 
 
 # -------------------------------
@@ -114,7 +117,9 @@ def register_learner():
 
         learner_name = request.form["learner_name"]
         learner_email = request.form["learner_email"]
-        learner_password = request.form["learner_password"]
+        learner_password = generate_password_hash(
+            request.form["learner_password"]
+        )
         learner_dob = request.form["learner_dob"]
         learner_skill = request.form["learner_skill"]
         learner_level = request.form["learner_level"]
@@ -143,7 +148,7 @@ def register_learner():
         connection.commit()
         connection.close()
 
-        return redirect(url_for("home"))
+        return redirect(url_for("learner_login"))
 
     return render_template("register.html")
 
@@ -190,7 +195,7 @@ def edit_learner(id):
         connection.commit()
         connection.close()
 
-        return redirect(url_for("home"))
+        return redirect(url_for("admin_dashboard"))
 
     connection.close()
 
@@ -221,7 +226,7 @@ def delete_learner(id):
     connection.close()
 
     # Return to the dashboard
-    return redirect(url_for("home"))
+    return redirect(url_for("admin_dashboard"))
 
 # --------------------------------
 # Exports CSV File
@@ -278,6 +283,57 @@ def export_csv():
     return response
 
 
+# -------------------------------
+# Learner Login
+# -------------------------------
+
+@app.route("/learner/login", methods=["GET", "POST"])
+def learner_login():
+
+    if request.method == "POST":
+
+        learner_email = request.form["learner_email"]
+        learner_password = request.form["learner_password"]
+
+        connection = sqlite3.connect("database/edutrack.db")
+        cursor = connection.cursor()
+
+        cursor.execute(
+            "SELECT * FROM learners WHERE email = ?",
+            (learner_email,)
+        )
+
+        learner = cursor.fetchone()
+        connection.close()
+
+        if learner and check_password_hash(learner[3], learner_password):
+
+            session["learner_id"] = learner[0]
+            session["learner_name"] = learner[1]
+
+            return redirect(url_for("learner_dashboard"))
+
+        return render_template(
+            "learner_login.html",
+            error="Invalid email or password."
+        )
+
+    return render_template("learner_login.html")
+
+# -------------------------------
+# Learner Dashboard
+# -------------------------------
+
+@app.route("/learner/dashboard")
+def learner_dashboard():
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    return render_template(
+        "learner_dashboard.html",
+        learner_name=session["learner_name"]
+    )
 
 # -------------------------------
 # Start the Flask application

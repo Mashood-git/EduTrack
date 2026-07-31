@@ -1390,3 +1390,381 @@ td .delete-btn{
 
     background:#1d4ed8;
 }
+
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    max-width:1200px;
+    margin:auto;
+
+    padding:30px 40px 30px;
+    gap:60px;
+}
+
+.hero-content{
+    flex:1;
+
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:550px;
+    height:auto;
+}
+
+.hero{
+    background:linear-gradient(
+        135deg,
+        #f8fbff,
+        #eef4ff
+    );
+}
+
+.hero-image img{
+    filter:drop-shadow(0 25px 40px rgba(37,99,235,.15));
+}
+
+.hero-buttons{
+    display: flex;
+    align-items: center;
+    gap: 35px;   /* Increase this value */
+}
+
+.hero-badge{
+    display: inline-block;
+    width: fit-content;
+    padding: 10px 18px;
+    border-radius: 50px;
+    background: #eef4ff;
+    color: #2563eb;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #dbeafe;
+}
+
+/* ==========================
+   FEATURES SECTION
+========================== */
+
+.features{
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 40px;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title span{
+    color:#2563eb;
+    font-weight:600;
+    letter-spacing:1px;
+    font-size:14px;
+}
+
+.section-title h2{
+    margin-top:15px;
+    font-size:42px;
+    color:#111827;
+}
+
+.section-title h2 span{
+    color:#2563eb;
+}
+
+.section-title p{
+    max-width:700px;
+    margin:20px auto 0;
+    color:#6b7280;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.feature-card{
+    background:#fff;
+    padding:35px 25px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(37,99,235,.15);
+}
+
+.feature-icon{
+    width:70px;
+    height:70px;
+    background:#eef4ff;
+    color:#2563eb;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    margin:0 auto 20px;
+}
+
+.feature-card h3{
+    margin-bottom:15px;
+    color:#111827;
+}
+
+.feature-card p{
+    color:#6b7280;
+    line-height:1.6;
+}
+
+
+/* ==========================
+        FOOTER
+========================== */
+
+.footer{
+    background:#111827;
+    color:#fff;
+    margin-top:60px;
+    padding:60px 40px 20px;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:80px;
+    flex-wrap:wrap;
+}
+
+/* ---------- Brand ---------- */
+
+.footer-brand{
+    flex:2;
+}
+
+.footer-logo{
+    width:180px;
+    height:auto;
+    display:block;
+    margin-bottom:20px;
+}
+
+.footer-brand p{
+    color:#d1d5db;
+    line-height:1.8;
+    max-width:420px;
+}
+
+/* ---------- Links ---------- */
+
+.footer-links,
+.footer-contact{
+    flex:1;
+    min-width:180px;
+}
+
+.footer h3{
+    font-size:20px;
+    margin-bottom:20px;
+    color:#ffffff;
+}
+
+.footer-links ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.footer-links li{
+    margin-bottom:14px;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#d1d5db;
+    transition:0.3s;
+}
+
+.footer-links a:hover{
+    color:#3b82f6;
+    padding-left:5px;
+}
+
+/* ---------- Contact ---------- */
+
+.footer-contact p{
+    color:#d1d5db;
+    margin-bottom:14px;
+    line-height:1.6;
+}
+
+/* ---------- Divider ---------- */
+
+.footer hr{
+    border:none;
+    border-top:1px solid #374151;
+    margin:45px 0 20px;
+}
+
+/* ---------- Bottom ---------- */
+
+.footer-bottom{
+    text-align:center;
+    color:#9ca3af;
+    font-size:15px;
+}
+
+/* ---------- Social ---------- */
+
+.footer-social{
+    flex:1;
+    min-width:180px;
+}
+
+.footer-social h3{
+    margin-bottom:20px;
+}
+
+.footer-social a{
+    display:block;
+    text-decoration:none;
+    color:#d1d5db;
+    margin-bottom:14px;
+    transition:.3s;
+}
+
+.footer-social a i{
+    width:22px;
+    color:#3b82f6;
+}
+
+.footer-social a:hover{
+    color:#3b82f6;
+    padding-left:5px;
+}
+
+/* ===========================
+   Learner Login Page
+=========================== */
+
+.login-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
+    padding:40px;
+}
+
+.login-card{
+    width:100%;
+    max-width:420px;
+    background:#ffffff;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.login-card h1{
+    text-align:center;
+    color:#1f2937;
+    margin-bottom:10px;
+}
+
+.login-card p{
+    text-align:center;
+    color:#6b7280;
+    margin-bottom:25px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+
+.input-group label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:#374151;
+}
+
+.input-group input{
+    padding:14px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:.3s;
+}
+
+.input-group input:focus{
+    border-color:#4f46e5;
+    box-shadow:0 0 8px rgba(79,70,229,.25);
+}
+
+.login-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#4f46e5;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#4338ca;
+    transform:translateY(-2px);
+}
+
+.error-message{
+    background:#fee2e2;
+    color:#dc2626;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.register-link{
+    margin-top:25px;
+    text-align:center;
+}
+
+.register-link a{
+    color:#4f46e5;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.register-link a:hover{
+    text-decoration:underline;
+}
+

@@ -46,17 +46,247 @@
 
     <div class="landing-buttons">
 
-        <a href="/learner/login" class="btn-outline">
+        <a href="{{ url_for('learner_login') }}" class="btn-outline">
             Login
         </a>
 
-        <a href="/learner/register" class="btn-primary">
+        <a href="{{ url_for('register_learner') }}" class="btn-primary">
             Get Started
         </a>
-
     </div>
 
 </header>
+<!-- ==========================
+     HERO SECTION
+=========================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-badge">
+            🎉 100% Free Learning Platform • No Subscription Required
+        </span>
+
+        <h1>
+            Learn Smarter,
+            <span>Build Faster.</span>
+        </h1>
+
+        <p>
+            Master Python, Java, SQL, Artificial Intelligence,
+            Machine Learning, Cloud Computing, and Full Stack
+            Development through interactive courses and real-world projects.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{{ url_for('register_learner') }}" class="btn-primary">
+                Get Started →
+            </a>
+
+            <a href="#courses" class="btn-outline">
+                Explore Courses
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div class="stat">
+                <h3>1000+</h3>
+                <p>Learners</p>
+            </div>
+
+            <div class="stat">
+                <h3>50+</h3>
+                <p>Courses</p>
+            </div>
+
+            <div class="stat">
+                <h3>4.9★</h3>
+                <p>Rating</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="{{ url_for('static', filename='images/hero-illustration.png') }}"
+             alt="AI Learning">
+
+    </div>
+
+</section>
+
+<!-- =========================
+     WHY CHOOSE EDUTRACK
+========================= -->
+
+<section class="features" id="features">
+
+    <div class="section-title">
+
+        <span>WHY CHOOSE EDUTRACK</span>
+
+        <h2>
+            Everything You Need to
+            <span>Learn Smarter</span>
+        </h2>
+
+        <p>
+            Learn industry-ready skills with AI-powered guidance,
+            interactive courses, progress tracking, and hands-on
+            projects—all in one platform.
+        </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <h3>AI Mentor</h3>
+
+            <p>
+                Get instant help with coding,
+                concepts, and learning paths.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <h3>Interactive Courses</h3>
+
+            <p>
+                Learn through structured lessons,
+                quizzes, and practical projects.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <h3>Track Progress</h3>
+
+            <p>
+                Monitor your learning journey
+                and stay motivated.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                <i class="fa-solid fa-award"></i>
+            </div>
+
+            <h3>Certificates</h3>
+
+            <p>
+                Earn certificates after
+                completing your courses.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+        FOOTER
+========================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+
+            <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
+                alt="EduTrack Logo"
+                class="footer-logo">
+
+            <p>
+                AI-Powered Learning Platform that helps students
+                master programming, AI, Cloud Computing, and
+                Full Stack Development — completely free.
+            </p>
+
+        </div>
+        <!-- Quick Links -->
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <p><i class="fa-solid fa-envelope"></i> support@edutrack.com</p>
+            <p><i class="fa-solid fa-graduation-cap"></i> 100% Free Learning Platform</p>
+
+        </div>
+
+        <!-- Follow Us -->
+
+        <div class="footer-social">
+
+            <h3>Follow Us</h3>
+
+            <a href="https://github.com/Mashood-git" target="_blank">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/mashoodahmedshariff/" target="_blank">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+
+            <a href="https://www.instagram.com/mashoodahmedshariff/" target="_blank">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 EduTrack. All Rights Reserved.</p>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
