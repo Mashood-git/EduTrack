@@ -1,13 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Learner Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learner Dashboard | EduTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 </head>
+
 <body>
 
-    <h1>Welcome {{ learner_name }} 👋</h1>
+<div class="dashboard-container">
 
-    <p>You have successfully logged into EduTrack.</p>
+    <!-- ======================
+            SIDEBAR
+    ======================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
+                 alt="EduTrack">
+
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li class="active">
+                <a href="#">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-book"></i>
+                    My Courses
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Progress
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('logout') }}">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ======================
+            MAIN CONTENT
+    ======================= -->
+
+    <main class="dashboard-content">
+
+        <!-- Welcome -->
+
+        <section class="welcome-card">
+
+            <h1>
+                Welcome Back,
+                {{ learner['name'] }} 👋
+            </h1>
+
+            <p>
+                Continue your learning journey with EduTrack.
+            </p>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <h3>⭐ Points</h3>
+
+                <h2>{{ learner['points'] }}</h2>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>🎯 Level</h3>
+
+                <h2>{{ learner['level'] }}</h2>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>📚 Skill</h3>
+
+                <h2>{{ learner['skill'] }}</h2>
+
+            </div>
+
+        </section>
+
+        <!-- Profile -->
+
+        <section class="profile-card">
+
+            <h2>My Profile</h2>
+
+            <div class="profile-info">
+
+                <p><strong>Name:</strong> {{ learner['name'] }}</p>
+
+                <p><strong>Email:</strong> {{ learner['email'] }}</p>
+
+                <p><strong>Skill:</strong> {{ learner['skill'] }}</p>
+
+                <p><strong>Level:</strong> {{ learner['level'] }}</p>
+
+                <p><strong>Joined:</strong> {{ learner['joined_date'] }}</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
 
 </body>
 </html>

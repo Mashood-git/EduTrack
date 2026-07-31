@@ -1768,3 +1768,176 @@ td .delete-btn{
     text-decoration:underline;
 }
 
+/* ===================================
+        LEARNER DASHBOARD
+=================================== */
+
+.dashboard-container{
+    display:flex;
+    min-height:100vh;
+    background:#f4f7fb;
+}
+
+.sidebar{
+    width:260px;
+    background:#111827;
+    color:white;
+    padding:30px 25px;
+}
+
+.sidebar-logo{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.sidebar-logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:50px;
+}
+
+.sidebar-logo img{
+    width:220px;
+}
+
+.sidebar-menu{
+    list-style:none;
+    padding:0;
+}
+
+.sidebar-menu li{
+    margin-bottom:12px;
+}
+
+.sidebar-menu a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    text-decoration:none;
+    color:#d1d5db;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.sidebar-menu a:hover{
+    background:#2563eb;
+    color:white;
+}
+
+.sidebar-menu .active a{
+    background:#2563eb;
+    color:white;
+}
+.dashboard-content{
+
+    flex:1;
+
+    padding:40px;
+}
+.welcome-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+}
+
+.welcome-card h1{
+
+    font-size:34px;
+
+    color:#111827;
+
+    margin-bottom:12px;
+}
+
+.welcome-card p{
+
+    color:#6b7280;
+
+    font-size:17px;
+}
+.stats{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-bottom:35px;
+}
+
+.stat-card{
+
+    flex:1;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.stat-card h3{
+
+    color:#6b7280;
+
+    margin-bottom:15px;
+}
+
+.stat-card h2{
+
+    color:#2563eb;
+
+    font-size:34px;
+}
+.profile-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.profile-card h2{
+
+    margin-bottom:25px;
+
+    color:#111827;
+}
+
+.profile-info{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+}
+
+.profile-info p{
+
+    background:#f8fafc;
+
+    padding:16px;
+
+    border-radius:10px;
+
+    font-size:16px;
+}

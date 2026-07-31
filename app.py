@@ -330,10 +330,30 @@ def learner_dashboard():
     if "learner_id" not in session:
         return redirect(url_for("learner_login"))
 
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT * FROM learners WHERE id = ?",
+        (session["learner_id"],)
+    )
+
+    learner = cursor.fetchone()
+
+    connection.close()
+
     return render_template(
         "learner_dashboard.html",
-        learner_name=session["learner_name"]
+        learner=learner
     )
+    
+@app.route("/logout")
+def logout():
+
+    session.clear()
+
+    return redirect(url_for("home"))
 
 # -------------------------------
 # Start the Flask application
