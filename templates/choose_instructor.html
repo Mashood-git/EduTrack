@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Instructor | EduTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="language-container">
+
+    <div class="language-card">
+
+        <div class="course-icon">
+
+            {{ course['icon'] }}
+
+        </div>
+
+        <h1>{{ course['course_name'] }}</h1>
+
+        <h3>Video Language: {{ language }}</h3>
+
+        <p>Select your preferred instructor.</p>
+
+        <form method="POST">
+
+            {% for instructor in instructors %}
+
+            <label class="language-option">
+
+                <input
+                    type="radio"
+                    name="instructor"
+                    value="{{ instructor['id'] }}"
+                    required>
+
+                <img
+                    src="{{ url_for('static', filename='images/instructors/' + instructor['image']) }}"
+                    class="instructor-image"
+                    alt="{{ instructor['instructor_name'] }}">
+
+                <h3>{{ instructor['instructor_name'] }}</h3>
+
+            </label>
+
+            {% endfor %}
+
+            <button type="submit" class="continue-btn">
+
+                Continue →
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

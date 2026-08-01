@@ -1780,9 +1780,11 @@ td .delete-btn{
 
 .sidebar{
     width:260px;
+    min-height:100vh;   /* Makes sidebar full screen height */
     background:#111827;
     color:white;
     padding:30px 25px;
+    box-sizing:border-box;
 }
 
 .sidebar-logo{
@@ -1940,4 +1942,295 @@ td .delete-btn{
     border-radius:10px;
 
     font-size:16px;
+}
+
+/* ===================================
+        EXPLORE COURSES
+=================================== */
+
+.courses-header{
+
+    margin-bottom:40px;
+}
+
+.courses-header h1{
+
+    font-size:38px;
+
+    color:#111827;
+
+    margin-bottom:10px;
+}
+
+.courses-header p{
+
+    color:#6b7280;
+
+    font-size:17px;
+}
+
+.course-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:30px;
+}
+
+.course-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.course-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.course-icon{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+}
+
+.course-card h2{
+
+    color:#111827;
+
+    margin-bottom:15px;
+}
+
+.course-level{
+
+    display:inline-block;
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    padding:8px 18px;
+
+    border-radius:20px;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+}
+
+.course-card p{
+
+    color:#4b5563;
+
+    margin-bottom:12px;
+}
+
+.course-btn{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px 30px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.course-btn:hover{
+
+    background:#1d4ed8;
+}
+
+.coming-soon{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    font-weight:600;
+}
+
+/* ================================
+      VIDEO LANGUAGE PAGE
+================================ */
+
+.language-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
+    background:#f4f7fb;
+
+    padding:30px;
+}
+
+.language-card{
+
+    background:white;
+
+    width:500px;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.language-card h1{
+
+    margin:20px 0;
+
+    color:#111827;
+}
+
+.language-card p{
+
+    color:#6b7280;
+
+    margin-bottom:18px;
+
+    line-height:1.7;
+}
+
+.language-option{
+
+    display:block;
+
+    padding:18px;
+
+    margin:18px 0;
+
+    border:2px solid #e5e7eb;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:.3s;
+}
+
+.language-option:hover{
+
+    border-color:#2563eb;
+
+    background:#eff6ff;
+}
+
+.language-option input{
+
+    margin-right:10px;
+}
+
+.continue-btn{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.continue-btn:hover{
+
+    background:#1d4ed8;
+}
+.instructor-image{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin:15px auto;
+}
+
+.language-option{
+
+    display:block;
+
+    border:2px solid #e5e7eb;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.language-option:hover{
+
+    border-color:#2563eb;
+
+    background:#eff6ff;
+}
+
+.language-option input{
+
+    margin-bottom:15px;
 }

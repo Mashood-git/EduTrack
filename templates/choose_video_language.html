@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Select Video Language | EduTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="language-container">
+
+    <div class="language-card">
+
+        <div class="course-icon">
+
+            {{ course['icon'] }}
+
+        </div>
+
+        <h1>{{ course['course_name'] }}</h1>
+
+        <p>
+
+            The course notes, quizzes and coding exercises are in
+            <strong>English</strong>.
+
+        </p>
+
+        <p>
+
+            Choose your preferred language for
+            <strong>video lessons</strong>.
+
+        </p>
+
+        <form method="POST">
+
+            <label class="language-option">
+
+                <input
+                    type="radio"
+                    name="video_language"
+                    value="English"
+                    required>
+
+                🇬🇧 English
+
+            </label>
+
+            <label class="language-option">
+
+                <input
+                    type="radio"
+                    name="video_language"
+                    value="Hindi">
+
+                🇮🇳 Hindi
+
+            </label>
+
+            <button class="continue-btn">
+
+                Continue →
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

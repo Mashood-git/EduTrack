@@ -44,6 +44,139 @@ def create_database():
     )
     """)
 
+    
+    # -------------------------------
+    # Courses Table
+    # -------------------------------
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS courses(
+
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        course_name TEXT NOT NULL,
+
+        level TEXT NOT NULL,
+
+        modules INTEGER NOT NULL,
+
+        language TEXT NOT NULL,
+
+        status TEXT NOT NULL,
+
+        icon TEXT NOT NULL
+
+    )
+    """)
+
+    # -------------------------------
+    # Course Instructors Table
+    # -------------------------------
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS course_instructors(
+
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        course_id INTEGER NOT NULL,
+
+        language TEXT NOT NULL,
+
+        instructor_name TEXT NOT NULL,
+
+        playlist_url TEXT NOT NULL,
+        
+        image TEXT NOT NULL,
+
+        FOREIGN KEY(course_id) REFERENCES courses(id)
+
+    )
+    """)
+
+    # -------------------------------
+    # Insert Default Courses
+    # -------------------------------
+
+    cursor.execute("SELECT COUNT(*) FROM courses")
+
+    if cursor.fetchone()[0] == 0:
+
+        courses = [
+
+            ("Python Programming", "Beginner", 12, "English & Hindi", "Available", "🐍"),
+
+            ("Java Programming", "Intermediate", 15, "English & Hindi", "Available", "☕"),
+
+            ("SQL Database", "Beginner", 10, "English & Hindi", "Available", "🗄"),
+
+            ("Machine Learning", "Advanced", 18, "-", "Coming Soon", "🤖"),
+
+            ("HTML & CSS", "Beginner", 14, "-", "Coming Soon", "🌐"),
+
+            ("JavaScript", "Intermediate", 16, "-", "Coming Soon", "⚡"),
+
+            ("Flask", "Intermediate", 10, "-", "Coming Soon", "🌱"),
+
+            ("Cloud Computing", "Intermediate", 12, "-", "Coming Soon", "☁️")
+
+        ]
+
+        cursor.executemany("""
+            INSERT INTO courses
+            (
+                course_name,
+                level,
+                modules,
+                language,
+                status,
+                icon
+            )
+            VALUES (?,?,?,?,?,?)
+        """, courses)
+
+    # -------------------------------
+    # Insert Default Instructors
+    # -------------------------------
+
+    cursor.execute("SELECT COUNT(*) FROM course_instructors")
+
+    if cursor.fetchone()[0] == 0:
+
+        instructors = [
+
+            # Python
+            (1, "English", "Programming with Mosh", "", "mosh.png"),
+            (1, "English", "Bro Code", "", "brocode.png"),
+            (1, "English", "freeCodeCamp", "", "freecodecamp.png"),
+
+            (1, "Hindi", "CodeWithHarry", "", "codewithharry.png"),
+            (1, "Hindi", "Apna College", "", "apnacollege.png"),
+            (1, "Hindi", "Jenny's Lectures", "", "jennyslectures.png"),
+
+            # Java
+            (2, "English", "Programming with Mosh", "", "mosh.png"),
+            (2, "Hindi", "CodeWithHarry", "", "codewithharry.png"   ),
+
+            # SQL
+            (3, "English", "freeCodeCamp", "", "freecodecamp.png"),
+            (3, "Hindi", "WsCube Tech", "", "wscube.png")
+
+        ]
+
+        cursor.executemany("""
+            INSERT INTO course_instructors
+            (
+                course_id,
+                language,
+                instructor_name,
+                playlist_url,
+                image
+            )
+            VALUES (?,?,?,?,?)
+        """, instructors)
+            
+    
+
     connection.commit()
     connection.close()
 
@@ -355,6 +488,120 @@ def logout():
 
     return redirect(url_for("home"))
 
+#-------------------------------
+# Learner Courses
+#------------------------------
+
+@app.route("/learner/courses")
+def learner_courses():
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute("SELECT * FROM courses")
+
+    courses = cursor.fetchall()
+
+    connection.close()
+
+    return render_template(
+        "learner_courses.html",
+        courses=courses
+    )
+    
+# -------------------------------
+# Choose Video Language
+# -------------------------------
+
+@app.route(
+    "/learner/course/<int:course_id>/video-language",
+    methods=["GET", "POST"]
+)
+def choose_video_language(course_id):
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT * FROM courses WHERE id=?",
+        (course_id,)
+    )
+
+    course = cursor.fetchone()
+
+    connection.close()
+
+    if request.method == "POST":
+
+        selected_language = request.form["video_language"]
+
+        return redirect(
+            url_for(
+                "choose_instructor",
+                course_id=course_id,
+                language=selected_language
+            )
+        )
+
+    return render_template(
+        "choose_video_language.html",
+        course=course
+    )
+    
+# -------------------------------
+# Choose Instructor
+# -------------------------------
+
+@app.route(
+    "/learner/course/<int:course_id>/instructors",
+    methods=["GET", "POST"]
+)
+def choose_instructor(course_id):
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    language = request.args.get("language")
+
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    # Get course
+    cursor.execute(
+        "SELECT * FROM courses WHERE id=?",
+        (course_id,)
+    )
+    course = cursor.fetchone()
+
+    # Get instructors
+    cursor.execute("""
+        SELECT *
+        FROM course_instructors
+        WHERE course_id = ?
+        AND language = ?
+    """, (course_id, language))
+
+    instructors = cursor.fetchall()
+
+    connection.close()
+
+    return render_template(
+        "choose_instructor.html",
+        course=course,
+        instructors=instructors,
+        language=language
+    )
+    
+    
 # -------------------------------
 # Start the Flask application
 # -------------------------------
