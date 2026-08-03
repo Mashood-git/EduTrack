@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Progress | EduTrack</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ======================
+            SIDEBAR
+    ======================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <img src="{{ url_for('static',
+                     filename='images/edutrack-logo.png') }}"
+                 alt="EduTrack Logo">
+
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li>
+
+                <a href="{{ url_for('learner_dashboard') }}">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('learner_courses') }}">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                    Explore Courses
+
+                </a>
+
+            </li>
+
+            <li class="active">
+
+                <a href="{{ url_for('learner_progress') }}">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    My Progress
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('learner_certificates') }}">
+
+                    <i class="fa-solid fa-award"></i>
+
+                    Certificates
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('learner_profile') }}">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    My Profile
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="#">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ======================
+            MAIN CONTENT
+    ======================= -->
+
+    <main class="dashboard-content">
+
+        <!-- Header -->
+
+        <section class="page-header">
+
+            <h1>📈 My Progress</h1>
+
+            <p>
+
+                Track your learning journey and continue your courses.
+
+            </p>
+
+        </section>
+
+        <!-- Python -->
+
+        <section class="progress-list">
+
+            <div class="progress-card">
+
+                <div class="progress-info">
+
+                    <h2>🐍 Python Programming</h2>
+
+                    <p>
+
+                        Status:
+                        <strong>Not Started</strong>
+
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                             style="width:0%;"></div>
+
+                    </div>
+
+                    <p>0% Completed</p>
+
+                </div>
+
+                <a href="{{ url_for('learner_courses') }}"
+                   class="continue-btn">
+
+                    Continue →
+
+                </a>
+
+            </div>
+
+            <!-- Java -->
+
+            <div class="progress-card">
+
+                <div class="progress-info">
+
+                    <h2>☕ Java Programming</h2>
+
+                    <p>
+
+                        Status:
+                        <strong>Not Started</strong>
+
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                             style="width:0%;"></div>
+
+                    </div>
+
+                    <p>0% Completed</p>
+
+                </div>
+
+                <a href="{{ url_for('learner_courses') }}"
+                   class="continue-btn">
+
+                    Start →
+
+                </a>
+
+            </div>
+
+            <!-- SQL -->
+
+            <div class="progress-card">
+
+                <div class="progress-info">
+
+                    <h2>🗄 SQL Database</h2>
+
+                    <p>
+
+                        Status:
+                        <strong>Not Started</strong>
+
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                             style="width:0%;"></div>
+
+                    </div>
+
+                    <p>0% Completed</p>
+
+                </div>
+
+                <a href="{{ url_for('learner_courses') }}"
+                   class="continue-btn">
+
+                    Start →
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

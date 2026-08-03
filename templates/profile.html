@@ -5,9 +5,10 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Explore Courses | EduTrack</title>
+    <title>My Profile | EduTrack</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
@@ -21,15 +22,14 @@
 
 <div class="dashboard-container">
 
-    <!-- ======================
-            SIDEBAR
-    ======================= -->
+    <!-- Sidebar -->
 
     <aside class="sidebar">
 
         <div class="sidebar-logo">
 
-            <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
+            <img src="{{ url_for('static',
+                     filename='images/edutrack-logo.png') }}"
                  alt="EduTrack Logo">
 
         </div>
@@ -37,129 +37,150 @@
         <ul class="sidebar-menu">
 
             <li>
+
                 <a href="{{ url_for('learner_dashboard') }}">
                     <i class="fa-solid fa-house"></i>
                     Dashboard
                 </a>
+
             </li>
 
-            <li class="active">
+            <li>
+
                 <a href="{{ url_for('learner_courses') }}">
                     <i class="fa-solid fa-book-open"></i>
                     Explore Courses
                 </a>
+
             </li>
 
             <li>
+
                 <a href="{{ url_for('learner_progress') }}">
                     <i class="fa-solid fa-chart-line"></i>
                     My Progress
                 </a>
+
             </li>
 
             <li>
+
                 <a href="{{ url_for('learner_certificates') }}">
                     <i class="fa-solid fa-award"></i>
                     Certificates
                 </a>
+
             </li>
 
-            <li>
+            <li class="active">
+
                 <a href="{{ url_for('learner_profile') }}">
                     <i class="fa-solid fa-user"></i>
                     My Profile
                 </a>
+
             </li>
 
             <li>
+
                 <a href="{{ url_for('logout') }}">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </a>
+
             </li>
 
         </ul>
 
     </aside>
 
-    <!-- ======================
-            MAIN CONTENT
-    ======================= -->
+    <!-- Main Content -->
 
     <main class="dashboard-content">
 
-        <div class="courses-header">
+        <section class="page-header">
 
-            <h1>📚 Explore Courses</h1>
+            <h1>👤 My Profile</h1>
 
             <p>
-                Learn from the best instructors in your preferred language.
+                View your personal information and learning details.
             </p>
 
-        </div>
+        </section>
 
-        <div class="course-grid">
+        <section class="profile-page-card">
 
-            {% for course in courses %}
+            <div class="profile-avatar">
 
-            <div class="course-card">
-
-                <div class="course-icon">
-
-                    {{ course['icon'] }}
-
-                </div>
-
-                <h2>{{ course['course_name'] }}</h2>
-
-                <span class="course-level">
-
-                    {{ course['level'] }}
-
-                </span>
-
-                <p>
-
-                    <i class="fa-solid fa-book"></i>
-
-                    {{ course['modules'] }} Modules
-
-                </p>
-
-                {% if course['status']=="Available" %}
-
-                <p>
-
-                    <i class="fa-solid fa-language"></i>
-
-                    English & Hindi
-
-                </p>
-
-                <a href="{{ url_for('choose_video_language', course_id=course['id']) }}"
-                    class="course-btn">
-                    🚀 Start Learning
-                </a>
-
-                {% else %}
-
-                <span class="coming-soon">
-
-                    🚧 Coming Soon
-
-                </span>
-
-                {% endif %}
+                <i class="fa-solid fa-circle-user"></i>
 
             </div>
 
-            {% endfor %}
+            <div class="profile-details">
 
-        </div>
+                <div class="profile-item">
+
+                    <strong>Name</strong>
+
+                    <p>{{ learner['name'] }}</p>
+
+                </div>
+
+                <div class="profile-item">
+
+                    <strong>Email</strong>
+
+                    <p>{{ learner['email'] }}</p>
+
+                </div>
+
+                <div class="profile-item">
+
+                    <strong>Skill</strong>
+
+                    <p>{{ learner['skill'] }}</p>
+
+                </div>
+
+                <div class="profile-item">
+
+                    <strong>Level</strong>
+
+                    <p>{{ learner['level'] }}</p>
+
+                </div>
+
+                <div class="profile-item">
+
+                    <strong>Points</strong>
+
+                    <p>{{ learner['points'] }}</p>
+
+                </div>
+
+                <div class="profile-item">
+
+                    <strong>Joined</strong>
+
+                    <p>{{ learner['joined_date'] }}</p>
+
+                </div>
+
+            </div>
+
+            <a href="{{ url_for('edit_profile') }}"
+               class="continue-btn">
+
+                Edit Profile
+
+            </a>
+
+        </section>
 
     </main>
 
 </div>
 
 </body>
+
 </html>

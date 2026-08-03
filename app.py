@@ -145,21 +145,25 @@ def create_database():
         instructors = [
 
             # Python
-            (1, "English", "Programming with Mosh", "", "mosh.png"),
-            (1, "English", "Bro Code", "", "brocode.png"),
-            (1, "English", "freeCodeCamp", "", "freecodecamp.png"),
+            (1, "English", "Programming with Mosh", "https://www.youtube.com/embed?listType=playlist&list=PLTjRvDozrdlxj5wgH4qkvwSOdHLOCx10f", "mosh.png"),
+            (1, "English", "Bro Code", "https://www.youtube.com/embed/videoseries?list=PLZPZq0r_RZOOkUQbat8LyQii36cJf2SWT", "brocode.png"),
+            (1, "English", "freeCodeCamp", "https://www.youtube.com/embed?listType=playlist&list=PLWKjhJtqVAbnqBxcdjVGgT3uVR10bzTEB", "freecodecamp.png"),
 
-            (1, "Hindi", "CodeWithHarry", "", "codewithharry.png"),
-            (1, "Hindi", "Apna College", "", "apnacollege.png"),
-            (1, "Hindi", "Jenny's Lectures", "", "jennyslectures.png"),
+            (1, "Hindi", "CodeWithHarry", "https://www.youtube.com/embed/videoseries?list=PLu0W_9lII9agICnT8t4iYVSZ3eykIAOME", "codewithharry.png"),
+            (1, "Hindi", "Apna College", "https://www.youtube.com/embed?listType=playlist&list=PL0--sAWljl5LEzNyN5Z4zlorThiIUYEV_", "apnacollege.png"),
+            (1, "Hindi", "Jenny's Lectures", "https://www.youtube.com/embed?listType=playlist&list=PLdo5W4Nhv31bZSiqiOL5ta39vSnBxpOPT", "jennyslectures.png"),
 
             # Java
-            (2, "English", "Programming with Mosh", "", "mosh.png"),
-            (2, "Hindi", "CodeWithHarry", "", "codewithharry.png"   ),
+            (2, "English", "Programming with Mosh", "https://www.youtube.com/embed/eIrMbAQSU34", "mosh.png"),
+            (2, "English", "Bro Code", "https://www.youtube.com/embed/xTtL8E4LzTQ", "brocode.png"),
+            (2, "Hindi", "CodeWithHarry", "https://www.youtube.com/embed?listType=playlist&list=PLu0W_9lII9agS67Uits0UnJyrYiXhDS6q", "codewithharry.png"   ),
+            (2, "Hindi", "Apna College", "https://www.youtube.com/embed?listType=playlist&list=PLfqMhTWNBTe3LtFWcvwpqTkUSlB32kJop", "apnacollege.png"),
 
             # SQL
-            (3, "English", "freeCodeCamp", "", "freecodecamp.png"),
-            (3, "Hindi", "WsCube Tech", "", "wscube.png")
+            (3, "English", "freeCodeCamp", "https://www.youtube.com/embed/HXV3zeQKqGY", "freecodecamp.png"),
+            (3, "English", "Bro Code", "https://www.youtube.com/embed/5OdVJbNCSso", "brocode.png"),
+            (3, "Hindi", "Apna College", "https://www.youtube.com/embed/hlGoQC332VM", "apnacollege.png"),
+            (3, "Hindi", "CodeWithHarry", "https://www.youtube.com/embed/yE6tIle64tU", "codewithharry.png")
 
         ]
 
@@ -575,14 +579,12 @@ def choose_instructor(course_id):
     connection.row_factory = sqlite3.Row
     cursor = connection.cursor()
 
-    # Get course
     cursor.execute(
         "SELECT * FROM courses WHERE id=?",
         (course_id,)
     )
     course = cursor.fetchone()
 
-    # Get instructors
     cursor.execute("""
         SELECT *
         FROM course_instructors
@@ -591,6 +593,20 @@ def choose_instructor(course_id):
     """, (course_id, language))
 
     instructors = cursor.fetchall()
+
+    if request.method == "POST":
+
+        instructor_id = request.form["instructor"]
+
+        connection.close()
+
+        return redirect(
+            url_for(
+                "course_page",
+                course_id=course_id,
+                instructor_id=instructor_id
+            )
+        )
 
     connection.close()
 
@@ -601,7 +617,142 @@ def choose_instructor(course_id):
         language=language
     )
     
+# -------------------------------
+# Course Page
+# -------------------------------
+
+@app.route("/learner/course/<int:course_id>/<int:instructor_id>")
+def course_page(course_id, instructor_id):
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    # Get Course
+    cursor.execute(
+        "SELECT * FROM courses WHERE id=?",
+        (course_id,)
+    )
+
+    course = cursor.fetchone()
+
+    # Get Instructor
+    cursor.execute(
+        "SELECT * FROM course_instructors WHERE id=?",
+        (instructor_id,)
+    )
+
+    instructor = cursor.fetchone()
+
+    connection.close()
+
+    return render_template(
+        "course.html",
+        course=course,
+        instructor=instructor
+    )
     
+@app.route("/learner/progress")
+def learner_progress():
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT * FROM learners WHERE id=?",
+        (session["learner_id"],)
+    )
+
+    learner = cursor.fetchone()
+
+    connection.close()
+
+    return render_template(
+        "progress.html",
+        learner=learner
+    )
+#-------------------------------
+# Learner Certificates
+#-------------------------------
+        
+@app.route("/learner/certificates")
+def learner_certificates():
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT * FROM learners WHERE id=?",
+        (session["learner_id"],)
+    )
+
+    learner = cursor.fetchone()
+
+    connection.close()
+
+    return render_template(
+        "certificates.html",
+        learner=learner
+    )
+
+@app.route("/learner/profile")
+def learner_profile():
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT * FROM learners WHERE id=?",
+        (session["learner_id"],)
+    )
+
+    learner = cursor.fetchone()
+
+    connection.close()
+
+    return render_template(
+        "profile.html",
+        learner=learner
+    )
+    
+@app.route("/learner/profile/edit")
+def edit_profile():
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
+
+    connection = sqlite3.connect("database/edutrack.db")
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT * FROM learners WHERE id=?",
+        (session["learner_id"],)
+    )
+
+    learner = cursor.fetchone()
+
+    connection.close()
+
+    return render_template(
+        "edit.html",
+        learner=learner
+    )
 # -------------------------------
 # Start the Flask application
 # -------------------------------

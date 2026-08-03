@@ -1,0 +1,1295 @@
+<h2>📚 Contents</h2>
+
+<ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#features">Features of SQL</a></li>
+    <li><a href="#database">Database & DBMS</a></li>
+    <li><a href="#datatypes">SQL Data Types</a></li>
+    <li><a href="#ddl">DDL Commands</a></li>
+    <li><a href="#dml">DML Commands</a></li>
+    <li><a href="#dql">DQL Commands</a></li>
+    <li><a href="#tcl">TCL Commands</a></li>
+    <li><a href="#constraints">Constraints</a></li>
+    <li><a href="#where">WHERE Clause</a></li>
+    <li><a href="#orderby">ORDER BY</a></li>
+    <li><a href="#groupby">GROUP BY</a></li>
+    <li><a href="#joins">Joins</a></li>
+    <li><a href="#functions">Aggregate Functions</a></li>
+    <li><a href="#subqueries">Subqueries</a></li>
+    <li><a href="#interview">Interview Questions</a></li>
+    <li><a href="#practice">Practice Queries</a></li>
+</ul>
+
+<hr>
+<hr>
+
+<h2 id="introduction">1. Introduction to SQL</h2>
+
+<p>
+SQL (Structured Query Language) is the standard language used to create,
+manage and retrieve data from relational databases.
+</p>
+
+<h3>⭐ Key Points</h3>
+
+<ul>
+
+<li>Used to communicate with databases</li>
+
+<li>Stores and retrieves data efficiently</li>
+
+<li>Works with MySQL, Oracle, SQL Server and PostgreSQL</li>
+
+<li>Easy to learn</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT * FROM students;
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+SQL is not case-sensitive, but writing keywords in uppercase improves readability.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> What does SQL stand for?
+
+<br>
+
+<b>Answer:</b>
+
+Structured Query Language.
+
+</p>
+
+</div>
+
+<hr>
+<h2 id="features">2. Features of SQL</h2>
+
+<ul>
+
+<li>Simple and Easy to Learn</li>
+
+<li>Standard Database Language</li>
+
+<li>Fast Data Retrieval</li>
+
+<li>Supports Security</li>
+
+<li>Works with Large Databases</li>
+
+<li>Portable</li>
+
+</ul>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Is SQL a programming language?
+
+<br>
+
+<b>Answer:</b>
+
+No. SQL is a database query language.
+
+</p>
+
+</div>
+
+<hr>
+<h2 id="database">3. Database & DBMS</h2>
+
+<p>
+
+A database is an organized collection of data.
+
+A DBMS (Database Management System) is software used to create and manage databases.
+
+</p>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Term</th>
+
+<th>Meaning</th>
+
+</tr>
+
+<tr>
+
+<td>Database</td>
+
+<td>Collection of related data</td>
+
+</tr>
+
+<tr>
+
+<td>DBMS</td>
+
+<td>Software to manage databases</td>
+
+</tr>
+
+<tr>
+
+<td>RDBMS</td>
+
+<td>Relational DBMS that stores data in tables</td>
+
+</tr>
+
+</table>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between DBMS and RDBMS?
+
+<br>
+
+<b>Answer:</b>
+
+DBMS stores data.
+
+RDBMS stores related data in tables using relationships.
+
+</p>
+
+</div>
+
+<hr>
+<hr>
+
+<h2 id="datatypes">4. SQL Data Types</h2>
+
+<p>
+SQL data types define the type of data that can be stored in a table column.
+</p>
+
+<h3>⭐ Common Data Types</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+
+<tr>
+<td>INT</td>
+<td>Stores whole numbers</td>
+</tr>
+
+<tr>
+<td>VARCHAR(n)</td>
+<td>Stores variable-length text</td>
+</tr>
+
+<tr>
+<td>CHAR(n)</td>
+<td>Stores fixed-length text</td>
+</tr>
+
+<tr>
+<td>FLOAT</td>
+<td>Stores decimal values</td>
+</tr>
+
+<tr>
+<td>DATE</td>
+<td>Stores date</td>
+</tr>
+
+<tr>
+<td>BOOLEAN</td>
+<td>Stores TRUE or FALSE</td>
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+CREATE TABLE Student(
+
+    id INT,
+
+    name VARCHAR(50),
+
+    marks FLOAT,
+
+    dob DATE
+
+);
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between CHAR and VARCHAR?
+
+<br>
+
+<b>Answer:</b>
+
+CHAR stores fixed-length strings, whereas VARCHAR stores variable-length strings.
+
+</p>
+
+</div>
+
+<hr>
+<h2 id="ddl">5. DDL (Data Definition Language)</h2>
+
+<p>
+DDL commands are used to create and modify database objects such as tables.
+</p>
+
+<h3>⭐ Common DDL Commands</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Command</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>CREATE</td>
+
+<td>Create database or table</td>
+
+</tr>
+
+<tr>
+
+<td>ALTER</td>
+
+<td>Modify table structure</td>
+
+</tr>
+
+<tr>
+
+<td>DROP</td>
+
+<td>Delete table or database</td>
+
+</tr>
+
+<tr>
+
+<td>TRUNCATE</td>
+
+<td>Delete all rows, keeps table</td>
+
+</tr>
+
+<tr>
+
+<td>RENAME</td>
+
+<td>Rename database object</td>
+
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+CREATE TABLE Student(
+
+    id INT,
+
+    name VARCHAR(50)
+
+);
+</code></pre>
+
+<pre><code>
+ALTER TABLE Student
+
+ADD age INT;
+</code></pre>
+
+<div class="warning">
+
+<b>⚠ Important</b>
+
+<p>
+
+DROP removes the table completely.
+
+TRUNCATE removes only the data but keeps the table structure.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between DROP and TRUNCATE?
+
+<br>
+
+<b>Answer:</b>
+
+DROP deletes both table structure and data.
+
+TRUNCATE deletes only the data while keeping the table.
+
+</p>
+
+</div>
+
+<hr>
+<h2 id="dml">6. DML (Data Manipulation Language)</h2>
+
+<p>
+DML commands are used to insert, update and delete records from a table.
+</p>
+
+<h3>⭐ Common DML Commands</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Command</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>INSERT</td>
+
+<td>Add new records</td>
+
+</tr>
+
+<tr>
+
+<td>UPDATE</td>
+
+<td>Modify existing records</td>
+
+</tr>
+
+<tr>
+
+<td>DELETE</td>
+
+<td>Remove records</td>
+
+</tr>
+
+</table>
+
+<h3>💻 Insert Example</h3>
+
+<pre><code>
+INSERT INTO Student
+
+VALUES
+
+(1,'Mashood',22);
+</code></pre>
+
+<h3>💻 Update Example</h3>
+
+<pre><code>
+UPDATE Student
+
+SET age = 23
+
+WHERE id = 1;
+</code></pre>
+
+<h3>💻 Delete Example</h3>
+
+<pre><code>
+DELETE FROM Student
+
+WHERE id = 1;
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Always use the <b>WHERE</b> clause with UPDATE and DELETE to avoid modifying all records.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> What happens if you execute UPDATE without a WHERE clause?
+
+<br>
+
+<b>Answer:</b>
+
+All rows in the table will be updated.
+
+</p>
+
+</div>
+
+<hr>
+<hr>
+
+<h2 id="dql">7. DQL (Data Query Language)</h2>
+
+<p>
+DQL is used to retrieve data from a database. The main DQL command is
+<b>SELECT</b>.
+</p>
+
+<h3>⭐ Common SELECT Statements</h3>
+
+<ul>
+
+<li>SELECT *</li>
+
+<li>SELECT column_name</li>
+
+<li>DISTINCT</li>
+
+<li>LIMIT</li>
+
+<li>AS (Alias)</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT * FROM Student;
+</code></pre>
+
+<pre><code>
+SELECT name, age
+
+FROM Student;
+</code></pre>
+
+<pre><code>
+SELECT DISTINCT city
+
+FROM Student;
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Use <b>SELECT *</b> only when needed. Selecting specific columns improves performance.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> What is the purpose of DISTINCT?
+
+<br>
+
+<b>Answer:</b>
+
+It removes duplicate values from the result.
+
+</p>
+
+</div>
+
+<hr>
+<h2 id="tcl">8. TCL (Transaction Control Language)</h2>
+
+<p>
+TCL commands are used to manage database transactions.
+</p>
+
+<h3>⭐ TCL Commands</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Command</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>COMMIT</td>
+
+<td>Save changes permanently</td>
+
+</tr>
+
+<tr>
+
+<td>ROLLBACK</td>
+
+<td>Undo changes</td>
+
+</tr>
+
+<tr>
+
+<td>SAVEPOINT</td>
+
+<td>Create a rollback point</td>
+
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+UPDATE Student
+
+SET marks = 90
+
+WHERE id = 1;
+
+COMMIT;
+</code></pre>
+
+<div class="warning">
+
+<b>⚠ Important</b>
+
+<p>
+
+ROLLBACK works only before COMMIT.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between COMMIT and ROLLBACK?
+
+<br>
+
+<b>Answer:</b>
+
+COMMIT saves changes permanently.
+
+ROLLBACK undoes uncommitted changes.
+
+</p>
+
+</div>
+
+<hr>
+<h2 id="constraints">9. Constraints</h2>
+
+<p>
+Constraints are rules applied to table columns to maintain data accuracy and integrity.
+</p>
+
+<h3>⭐ Common Constraints</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Constraint</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>NOT NULL</td>
+
+<td>Cannot store NULL values</td>
+
+</tr>
+
+<tr>
+
+<td>UNIQUE</td>
+
+<td>No duplicate values</td>
+
+</tr>
+
+<tr>
+
+<td>PRIMARY KEY</td>
+
+<td>Unique identifier for each row</td>
+
+</tr>
+
+<tr>
+
+<td>FOREIGN KEY</td>
+
+<td>Creates relationship between tables</td>
+
+</tr>
+
+<tr>
+
+<td>CHECK</td>
+
+<td>Validates values</td>
+
+</tr>
+
+<tr>
+
+<td>DEFAULT</td>
+
+<td>Assigns default value</td>
+
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+CREATE TABLE Student(
+
+    id INT PRIMARY KEY,
+
+    name VARCHAR(50) NOT NULL,
+
+    age INT CHECK(age >= 18)
+
+);
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between PRIMARY KEY and UNIQUE?
+
+<br>
+
+<b>Answer:</b>
+
+PRIMARY KEY uniquely identifies each row and cannot contain NULL values.
+
+UNIQUE also prevents duplicates but generally allows a NULL value depending on the database system.
+
+</p>
+
+</div>
+
+<hr>
+<h2 id="where">10. WHERE Clause</h2>
+
+<p>
+The WHERE clause filters records based on a specified condition.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT *
+
+FROM Student
+
+WHERE age > 20;
+</code></pre>
+
+<h3>⭐ Operators Used with WHERE</h3>
+
+<ul>
+
+<li>=</li>
+
+<li>></li>
+
+<li><</li>
+
+<li>>=</li>
+
+<li><=</li>
+
+<li>!= or <></li>
+
+<li>AND</li>
+
+<li>OR</li>
+
+<li>NOT</li>
+
+<li>IN</li>
+
+<li>BETWEEN</li>
+
+<li>LIKE</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT *
+
+FROM Student
+
+WHERE city = 'Mysore'
+
+AND age >= 20;
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Always use the WHERE clause with UPDATE and DELETE to avoid affecting all records.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Which operator is used to search for patterns in SQL?
+
+<br>
+
+<b>Answer:</b>
+
+The <b>LIKE</b> operator.
+
+</p>
+
+</div>
+
+<hr>
+<hr>
+
+<h2 id="orderby">11. ORDER BY</h2>
+
+<p>
+The <b>ORDER BY</b> clause is used to sort the result set in ascending or descending order.
+</p>
+
+<h3>⭐ Syntax</h3>
+
+<pre><code>
+SELECT column_name
+
+FROM table_name
+
+ORDER BY column_name ASC;
+</code></pre>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT *
+
+FROM Student
+
+ORDER BY marks DESC;
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+ASC is the default sorting order.
+
+Use DESC for descending order.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> What is the default sorting order in SQL?
+
+<br>
+
+<b>Answer:</b>
+
+Ascending (ASC).
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="groupby">12. GROUP BY</h2>
+
+<p>
+
+The <b>GROUP BY</b> clause groups rows having the same values into summary rows.
+
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT department,
+
+COUNT(*)
+
+FROM Employee
+
+GROUP BY department;
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+GROUP BY is commonly used with aggregate functions like COUNT(), SUM() and AVG().
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Why is GROUP BY used?
+
+<br>
+
+<b>Answer:</b>
+
+To group rows and perform aggregate calculations on each group.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="joins">13. JOINS</h2>
+
+<p>
+
+Joins combine data from two or more tables based on a related column.
+
+</p>
+
+<h3>⭐ Types of Joins</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Join</th>
+
+<th>Description</th>
+
+</tr>
+
+<tr>
+
+<td>INNER JOIN</td>
+
+<td>Returns matching records from both tables.</td>
+
+</tr>
+
+<tr>
+
+<td>LEFT JOIN</td>
+
+<td>Returns all records from the left table and matching records from the right table.</td>
+
+</tr>
+
+<tr>
+
+<td>RIGHT JOIN</td>
+
+<td>Returns all records from the right table and matching records from the left table.</td>
+
+</tr>
+
+<tr>
+
+<td>FULL JOIN</td>
+
+<td>Returns all matching and non-matching records from both tables.</td>
+
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT Student.name,
+
+Course.course_name
+
+FROM Student
+
+INNER JOIN Course
+
+ON Student.course_id = Course.id;
+</code></pre>
+
+<div class="warning">
+
+<b>⚠ Important</b>
+
+<p>
+
+INNER JOIN returns only matching rows.
+
+LEFT JOIN returns all rows from the left table.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between INNER JOIN and LEFT JOIN?
+
+<br>
+
+<b>Answer:</b>
+
+INNER JOIN returns only matching rows.
+
+LEFT JOIN returns all rows from the left table and matching rows from the right table.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="functions">14. Aggregate Functions</h2>
+
+<p>
+
+Aggregate functions perform calculations on multiple rows and return a single value.
+
+</p>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Function</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>COUNT()</td>
+
+<td>Counts rows</td>
+
+</tr>
+
+<tr>
+
+<td>SUM()</td>
+
+<td>Adds values</td>
+
+</tr>
+
+<tr>
+
+<td>AVG()</td>
+
+<td>Average value</td>
+
+</tr>
+
+<tr>
+
+<td>MIN()</td>
+
+<td>Smallest value</td>
+
+</tr>
+
+<tr>
+
+<td>MAX()</td>
+
+<td>Largest value</td>
+
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT AVG(marks)
+
+FROM Student;
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Which function returns the total number of rows?
+
+<br>
+
+<b>Answer:</b>
+
+COUNT()
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="subqueries">15. Subqueries</h2>
+
+<p>
+
+A subquery is a query written inside another SQL query.
+
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+SELECT name
+
+FROM Student
+
+WHERE marks >
+
+(
+
+SELECT AVG(marks)
+
+FROM Student
+
+);
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Subqueries can be used inside SELECT, INSERT, UPDATE and DELETE statements.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> What is a Subquery?
+
+<br>
+
+<b>Answer:</b>
+
+A query nested inside another SQL query.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="interview">16. Frequently Asked Interview Questions</h2>
+
+<ol>
+
+<li>Difference between DELETE, DROP and TRUNCATE?</li>
+
+<li>Difference between WHERE and HAVING?</li>
+
+<li>Difference between CHAR and VARCHAR?</li>
+
+<li>Difference between PRIMARY KEY and FOREIGN KEY?</li>
+
+<li>Difference between INNER JOIN and LEFT JOIN?</li>
+
+<li>Difference between GROUP BY and ORDER BY?</li>
+
+<li>What is a Subquery?</li>
+
+<li>What are Aggregate Functions?</li>
+
+<li>Difference between DBMS and RDBMS?</li>
+
+<li>What is Normalization?</li>
+
+</ol>
+
+<hr>
+
+<h2 id="practice">17. Practice Queries</h2>
+
+<ul>
+
+<li>Create a Student table.</li>
+
+<li>Insert 10 records.</li>
+
+<li>Display all students.</li>
+
+<li>Find students with marks greater than 80.</li>
+
+<li>Update a student's marks.</li>
+
+<li>Delete a student record.</li>
+
+<li>Sort students by marks.</li>
+
+<li>Find average marks.</li>
+
+<li>Count students in each department.</li>
+
+<li>Perform an INNER JOIN between Student and Course tables.</li>
+
+</ul>
+
+<hr>
+
+<div class="revision">
+
+<h2>🎉 Quick Revision</h2>
+
+<ul>
+
+<li>✔ SQL is used to manage relational databases.</li>
+
+<li>✔ DDL defines database structure.</li>
+
+<li>✔ DML modifies data.</li>
+
+<li>✔ DQL retrieves data using SELECT.</li>
+
+<li>✔ TCL manages transactions.</li>
+
+<li>✔ Constraints maintain data integrity.</li>
+
+<li>✔ WHERE filters records.</li>
+
+<li>✔ ORDER BY sorts data.</li>
+
+<li>✔ GROUP BY groups similar records.</li>
+
+<li>✔ JOIN combines data from multiple tables.</li>
+
+<li>✔ Aggregate functions summarize data.</li>
+
+<li>✔ Subqueries are queries inside another query.</li>
+
+</ul>
+
+</div>

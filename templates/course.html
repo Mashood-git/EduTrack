@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>{{ course['course_name'] }}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/notes.css') }}">
+
+</head>
+
+<body>
+
+<div class="course-container">
+
+    <h1>{{ course['icon'] }} {{ course['course_name'] }}</h1>
+
+    <h3>👨‍🏫 Instructor: {{ instructor['instructor_name'] }}</h3>
+
+    <br>
+
+    <h2>🎥 Complete Playlist</h2>
+
+    <iframe
+        width="100%"
+        height="500"
+        src="{{ instructor['playlist_url'] }}"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+
+    <!-- ==========================
+            DOWNLOAD NOTES
+    =========================== -->
+
+    <div class="download-section">
+
+        {% if course['course_name'] == "Python Programming" %}
+
+            <a href="{{ url_for('static', filename='notes/pdf/python_notes.pdf') }}"
+               class="download-btn"
+               download>
+
+                📥 Download Python Notes (PDF)
+
+            </a>
+
+        {% elif course['course_name'] == "Java Programming" %}
+
+            <a href="{{ url_for('static', filename='notes/pdf/java_notes.pdf') }}"
+               class="download-btn"
+               download>
+
+                📥 Download Java Notes (PDF)
+
+            </a>
+
+        {% elif course['course_name'] == "SQL Database" %}
+
+            <a href="{{ url_for('static', filename='notes/pdf/sql_notes.pdf') }}"
+               class="download-btn"
+               download>
+
+                📥 Download SQL Notes (PDF)
+
+            </a>
+
+        {% endif %}
+
+    </div>
+
+    <!-- ==========================
+            COURSE NOTES
+    =========================== -->
+
+    <div class="notes-container">
+
+        {% if course['course_name'] == "Python Programming" %}
+
+            {% include "notes/python.html" %}
+
+        {% elif course['course_name'] == "Java Programming" %}
+
+            {% include "notes/java.html" %}
+
+        {% elif course['course_name'] == "SQL Database" %}
+
+            {% include "notes/sql.html" %}
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,413 @@
+/* ===========================================
+   EDU TRACK NOTES STYLESHEET
+=========================================== */
+
+/* Smooth Scroll */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* Body */
+
+body{
+
+    margin:0;
+    padding:0;
+    background:#f4f7fb;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+/* ===========================================
+   NOTES CONTAINER
+=========================================== */
+
+.notes-container{
+
+    max-width:1100px;
+    margin:40px auto;
+    padding:45px;
+    background:#ffffff;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+/* ===========================================
+   HEADINGS
+=========================================== */
+
+.notes-container h1{
+
+    text-align:center;
+    font-size:42px;
+    color:#2563eb;
+    margin-bottom:15px;
+
+}
+
+.notes-container h2{
+
+    margin-top:50px;
+    padding:12px 18px;
+    background:#eef4ff;
+    color:#1f2937;
+    border-left:6px solid #2563eb;
+    border-radius:8px;
+
+}
+
+.notes-container h3{
+
+    margin-top:25px;
+    color:#374151;
+
+}
+
+/* ===========================================
+   CONTENTS
+=========================================== */
+
+.notes-container ul{
+
+    list-style:none;
+    padding:0;
+
+}
+
+.notes-container ul li{
+
+    display:inline-block;
+    margin:8px;
+
+}
+
+.notes-container ul li a{
+
+    display:block;
+    padding:10px 18px;
+    background:#2563eb;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:600;
+
+}
+
+.notes-container ul li a:hover{
+
+    background:#1d4ed8;
+    transform:translateY(-2px);
+
+}
+
+/* ===========================================
+   ORDERED LIST
+=========================================== */
+
+.notes-container ol{
+
+    margin-left:25px;
+    line-height:2;
+
+}
+
+/* ===========================================
+   PARAGRAPHS
+=========================================== */
+
+.notes-container p{
+
+    line-height:1.8;
+    color:#444;
+    font-size:16px;
+
+}
+
+/* ===========================================
+   NORMAL LISTS
+=========================================== */
+
+.notes-container li{
+
+    line-height:1.8;
+
+}
+
+/* ===========================================
+   TABLES
+=========================================== */
+
+.notes-container table{
+
+    width:100%;
+    border-collapse:collapse;
+    margin:25px 0;
+    overflow:hidden;
+    border-radius:10px;
+
+}
+
+.notes-container table th{
+
+    background:#2563eb;
+    color:white;
+    padding:14px;
+    text-align:left;
+
+}
+
+.notes-container table td{
+
+    padding:14px;
+    border:1px solid #ddd;
+
+}
+
+.notes-container table tr:nth-child(even){
+
+    background:#f8fafc;
+
+}
+
+.notes-container table tr:hover{
+
+    background:#e8f1ff;
+
+}
+
+/* ===========================================
+   CODE BLOCKS
+=========================================== */
+
+.notes-container pre{
+
+    background:#1e1e1e;
+    color:#d4d4d4;
+    padding:20px;
+    border-radius:10px;
+    overflow-x:auto;
+    line-height:1.7;
+    font-size:15px;
+
+}
+
+.notes-container code{
+
+    font-family:Consolas, monospace;
+
+}
+
+/* Inline Code */
+
+.notes-container p code,
+.notes-container li code{
+
+    background:#f3f4f6;
+    color:#dc2626;
+    padding:2px 6px;
+    border-radius:5px;
+
+}
+
+/* ===========================================
+   HORIZONTAL LINE
+=========================================== */
+
+.notes-container hr{
+
+    margin:45px 0;
+    border:none;
+    border-top:1px solid #ddd;
+
+}
+
+/* ===========================================
+   INTERVIEW BOX
+=========================================== */
+
+.interview{
+
+    background:#eef2ff;
+    border-left:6px solid #4f46e5;
+    padding:20px;
+    margin:25px 0;
+    border-radius:10px;
+
+}
+
+.interview h3{
+
+    margin-top:0;
+
+}
+
+/* ===========================================
+   TIP BOX
+=========================================== */
+
+.tip{
+
+    background:#e8fff2;
+    border-left:6px solid #16a34a;
+    padding:20px;
+    margin:25px 0;
+    border-radius:10px;
+
+}
+
+.tip h3{
+
+    margin-top:0;
+
+}
+
+/* ===========================================
+   WARNING BOX
+=========================================== */
+
+.warning{
+
+    background:#fff8eb;
+    border-left:6px solid #ea580c;
+    padding:20px;
+    margin:25px 0;
+    border-radius:10px;
+
+}
+
+.warning h3{
+
+    margin-top:0;
+
+}
+
+/* ===========================================
+   QUICK REVISION
+=========================================== */
+
+.revision{
+
+    margin-top:40px;
+    background:#f8fafc;
+    border:2px solid #2563eb;
+    padding:30px;
+    border-radius:15px;
+
+}
+
+/* ===========================================
+   LINKS
+=========================================== */
+
+.notes-container a{
+
+    transition:.3s;
+
+}
+
+/* ===========================================
+   DOWNLOAD BUTTON
+=========================================== */
+
+.download-section{
+
+    text-align:center;
+    margin:35px 0;
+
+}
+
+.download-btn{
+
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    background:#1d4ed8;
+    transform:translateY(-3px);
+
+}
+
+/* ===========================================
+   IFRAME
+=========================================== */
+
+.course-container iframe{
+
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+/* ===========================================
+   TEXT SELECTION
+=========================================== */
+
+::selection{
+
+    background:#2563eb;
+    color:white;
+
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+=========================================== */
+
+@media(max-width:768px){
+
+    .notes-container{
+
+        margin:20px;
+        padding:20px;
+
+    }
+
+    .notes-container h1{
+
+        font-size:32px;
+
+    }
+
+    .notes-container table{
+
+        display:block;
+        overflow-x:auto;
+
+    }
+
+    .notes-container ul li{
+
+        display:block;
+        margin:10px 0;
+
+    }
+
+    .notes-container ul li a{
+
+        text-align:center;
+
+    }
+
+    .download-btn{
+
+        width:100%;
+        box-sizing:border-box;
+
+    }
+
+}

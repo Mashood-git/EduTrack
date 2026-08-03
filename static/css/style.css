@@ -2234,3 +2234,336 @@ td .delete-btn{
 
     margin-bottom:15px;
 }
+.course-container{
+
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+
+}
+
+.course-container iframe{
+
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+/* ===========================
+   DOWNLOAD BUTTON
+=========================== */
+
+.download-section{
+
+    text-align:center;
+    margin:35px 0;
+
+}
+
+.download-btn{
+
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:600;
+    transition:0.3s;
+
+}
+
+.download-btn:hover{
+
+    background:#1d4ed8;
+    transform:translateY(-3px);
+
+}
+/* ==========================
+   Continue Learning
+========================== */
+
+.continue-learning{
+
+    margin-top:40px;
+
+}
+
+.continue-card{
+
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-top:20px;
+
+}
+
+.continue-card h3{
+
+    margin-bottom:10px;
+
+}
+
+.continue-card p{
+
+    color:#666;
+
+}
+
+.continue-btn{
+
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    padding:12px 24px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+    width:fit-content;
+
+}
+
+.continue-btn:hover{
+
+    background:#1d4ed8;
+    transform:translateY(-2px);
+
+}
+
+/* ==========================
+   Recent Courses
+========================== */
+
+.recent-courses{
+
+    margin-top:40px;
+
+}
+
+.recent-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:20px;
+
+}
+
+.recent-course{
+
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+
+}
+
+.recent-course:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.recent-course h3{
+
+    margin-bottom:10px;
+
+}
+
+.recent-course p{
+
+    color:#666;
+
+}
+/* ==========================
+   Quote
+========================== */
+
+.quote-card{
+
+    background:white;
+    margin-top:40px;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.quote-card p{
+
+    font-size:22px;
+    color:#555;
+    font-style:italic;
+
+}
+/* ==========================
+   Progress Page
+========================== */
+
+.page-header{
+
+    margin-bottom:40px;
+
+}
+
+.page-header h1{
+
+    font-size:40px;
+    color:#1f2937;
+
+}
+
+.page-header p{
+
+    color:#666;
+    margin-top:10px;
+
+}
+
+.progress-list{
+
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+
+}
+
+.progress-card{
+
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.progress-info{
+
+    flex:1;
+
+}
+
+.progress-bar{
+
+    width:100%;
+    height:15px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0;
+
+}
+
+.progress-fill{
+
+    height:100%;
+    background:#2563eb;
+    border-radius:20px;
+
+}
+
+/* ==========================
+   Certificates
+========================== */
+
+.certificate-container{
+
+    margin-top:40px;
+
+}
+
+.certificate-card{
+
+    background:white;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.certificate-icon{
+
+    font-size:80px;
+    color:#f59e0b;
+    margin-bottom:20px;
+
+}
+
+.certificate-card h2{
+
+    margin-bottom:15px;
+    color:#1f2937;
+
+}
+
+.certificate-card p{
+
+    color:#666;
+    margin-bottom:30px;
+    font-size:18px;
+
+}
+
+/* ==========================
+   Profile Page
+========================== */
+
+.profile-page-card{
+
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.profile-avatar{
+
+    text-align:center;
+    font-size:60px;
+    color:#2563eb;
+    margin-bottom:30px;
+
+}
+
+.profile-details{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:20px;
+
+}
+
+.profile-item{
+
+    background:#f8fafc;
+    padding:15px;
+    border-radius:12px;
+
+}
+
+.profile-item strong{
+
+    display:block;
+    color:#555;
+    margin-bottom:8px;
+
+}
+
+.profile-item p{
+
+    font-size:18px;
+    font-weight:600;
+
+}

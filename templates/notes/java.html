@@ -1,0 +1,1794 @@
+<h1>☕ Java Programming Notes</h1>
+
+<hr>
+
+<!-- ==========================
+        CONTENTS
+========================== -->
+
+<h2>📚 Contents</h2>
+
+<ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#jvm">JVM, JRE & JDK</a></li>
+    <li><a href="#variables">Variables</a></li>
+    <li><a href="#datatypes">Data Types</a></li>
+    <li><a href="#operators">Operators</a></li>
+    <li><a href="#input">Input & Output</a></li>
+    <li><a href="#condition">Conditional Statements</a></li>
+    <li><a href="#loops">Loops</a></li>
+    <li><a href="#arrays">Arrays</a></li>
+    <li><a href="#strings">Strings</a></li>
+    <li><a href="#methods">Methods</a></li>
+    <li><a href="#constructors">Constructors</a></li>
+    <li><a href="#this">this Keyword</a></li>
+    <li><a href="#static">static Keyword</a></li>
+    <li><a href="#oop">Object-Oriented Programming</a></li>
+    <li><a href="#inheritance">Inheritance</a></li>
+    <li><a href="#polymorphism">Polymorphism</a></li>
+    <li><a href="#abstraction">Abstraction</a></li>
+    <li><a href="#interface">Interface</a></li>
+    <li><a href="#exception">Exception Handling</a></li>
+    <li><a href="#collections">Collections Framework</a></li>
+    <li><a href="#interview">Interview Questions</a></li>
+    <li><a href="#practice">Practice Programs</a></li>
+</ul>
+
+<hr>
+
+<h2 id="introduction">1. Introduction to Java</h2>
+
+<p>
+Java is a high-level, object-oriented programming language developed by
+<b>James Gosling</b> at Sun Microsystems and released in <b>1995</b>.
+It follows the principle <b>"Write Once, Run Anywhere (WORA)"</b>.
+</p>
+
+<h3>⭐ Key Points</h3>
+
+<ul>
+    <li>Platform Independent</li>
+    <li>Object-Oriented</li>
+    <li>Secure and Robust</li>
+    <li>Supports Multithreading</li>
+    <li>Widely used for Web, Mobile and Enterprise Applications</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello Java");
+
+    }
+
+}
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Who developed Java?
+
+<br>
+
+<b>Answer:</b> James Gosling.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="features">2. Features of Java</h2>
+
+<ul>
+
+<li>Simple</li>
+
+<li>Object-Oriented</li>
+
+<li>Platform Independent</li>
+
+<li>Secure</li>
+
+<li>Robust</li>
+
+<li>Portable</li>
+
+<li>Multithreaded</li>
+
+<li>Distributed</li>
+
+<li>High Performance</li>
+
+<li>Dynamic</li>
+
+</ul>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Java programs are compiled into <b>bytecode</b>, which runs on the JVM.
+This makes Java platform independent.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Why is Java platform independent?
+
+<br>
+
+<b>Answer:</b>
+
+Because Java code is compiled into bytecode, which runs on any operating system that has a JVM.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="jvm">3. JVM, JRE & JDK</h2>
+
+<p>
+
+These are the core components required to develop and run Java programs.
+
+</p>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Component</th>
+
+<th>Description</th>
+
+</tr>
+
+<tr>
+
+<td>JVM</td>
+
+<td>Runs Java bytecode.</td>
+
+</tr>
+
+<tr>
+
+<td>JRE</td>
+
+<td>Provides libraries and JVM to run Java programs.</td>
+
+</tr>
+
+<tr>
+
+<td>JDK</td>
+
+<td>Contains JRE + development tools like javac.</td>
+
+</tr>
+
+</table>
+
+<h3>💻 Diagram</h3>
+
+<pre><code>
+JDK
+ ├── JRE
+ │     └── JVM
+</code></pre>
+
+<div class="warning">
+
+<b>⚠ Important</b>
+
+<p>
+
+You need <b>JDK</b> to develop Java applications.
+
+You only need <b>JRE</b> to run Java applications.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between JVM, JRE and JDK?
+
+<br>
+
+<b>Answer:</b>
+
+JVM executes bytecode.
+
+JRE provides the runtime environment.
+
+JDK contains JRE along with development tools.
+
+</p>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2 id="variables">4. Variables</h2>
+
+<p>
+A variable is a named memory location used to store data. In Java, every
+variable must be declared with a data type before use.
+</p>
+
+<h3>⭐ Rules</h3>
+
+<ul>
+    <li>Must be declared before use.</li>
+    <li>Cannot start with a number.</li>
+    <li>Case-sensitive (age and Age are different).</li>
+    <li>Use meaningful variable names.</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+int age = 22;
+
+String name = "Mashood";
+
+double salary = 45000.50;
+
+boolean isStudent = true;
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+Use <code>camelCase</code> for variable names.
+
+Example:
+<code>studentName</code>,
+<code>totalMarks</code>
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Why should variables be declared with a data type?
+
+<br>
+
+<b>Answer:</b>
+
+Because Java is a statically typed language. The compiler must know the data type before compilation.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="datatypes">5. Data Types</h2>
+
+<p>
+Java data types are divided into two categories:
+</p>
+
+<h3>⭐ Primitive Data Types</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+<th>Type</th>
+<th>Size</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td>byte</td>
+<td>1 Byte</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>short</td>
+<td>2 Bytes</td>
+<td>2000</td>
+</tr>
+
+<tr>
+<td>int</td>
+<td>4 Bytes</td>
+<td>10000</td>
+</tr>
+
+<tr>
+<td>long</td>
+<td>8 Bytes</td>
+<td>100000L</td>
+</tr>
+
+<tr>
+<td>float</td>
+<td>4 Bytes</td>
+<td>3.14f</td>
+</tr>
+
+<tr>
+<td>double</td>
+<td>8 Bytes</td>
+<td>3.14159</td>
+</tr>
+
+<tr>
+<td>char</td>
+<td>2 Bytes</td>
+<td>'A'</td>
+</tr>
+
+<tr>
+<td>boolean</td>
+<td>1 Bit*</td>
+<td>true</td>
+</tr>
+
+</table>
+
+<h3>⭐ Non-Primitive Data Types</h3>
+
+<ul>
+
+<li>String</li>
+
+<li>Array</li>
+
+<li>Class</li>
+
+<li>Interface</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+int age = 22;
+
+char grade = 'A';
+
+boolean passed = true;
+
+String city = "Mysore";
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between Primitive and Non-Primitive Data Types?
+
+<br>
+
+<b>Answer:</b>
+
+Primitive types store actual values.
+
+Non-Primitive types store references to objects.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="operators">6. Operators</h2>
+
+<p>
+Operators are symbols used to perform operations on variables and values.
+</p>
+
+<h3>⭐ Types of Operators</h3>
+
+<ul>
+
+<li>Arithmetic (+, -, *, /, %)</li>
+
+<li>Relational (==, !=, >, <, >=, <=)</li>
+
+<li>Logical (&&, ||, !)</li>
+
+<li>Assignment (=, +=, -=)</li>
+
+<li>Unary (++, --)</li>
+
+<li>Ternary ( ? : )</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+int a = 10;
+
+int b = 5;
+
+System.out.println(a + b);
+
+System.out.println(a > b);
+
+System.out.println(a % b);
+</code></pre>
+
+<div class="warning">
+
+<b>⚠ Important</b>
+
+<p>
+
+Do not confuse:
+
+<b>=</b> → Assignment
+
+<b>==</b> → Comparison
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between <code>=</code> and <code>==</code>?
+
+<br>
+
+<b>Answer:</b>
+
+<code>=</code> assigns a value to a variable.
+
+<code>==</code> compares two values.
+
+</p>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2 id="input">7. Input & Output</h2>
+
+<p>
+Java uses the <b>Scanner</b> class to accept input from the user and
+<b>System.out.println()</b> to display output.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter your age: ");
+
+        int age = sc.nextInt();
+
+        System.out.println("Age = " + age);
+
+    }
+
+}
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Always import the Scanner class before using it.
+
+<code>import java.util.Scanner;</code>
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Which class is used for user input in Java?
+
+<br>
+
+<b>Answer:</b>
+
+Scanner class.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="condition">8. Conditional Statements</h2>
+
+<p>
+Conditional statements execute different blocks of code depending on whether a condition is true or false.
+</p>
+
+<h3>⭐ Types</h3>
+
+<ul>
+
+<li>if</li>
+
+<li>if-else</li>
+
+<li>if-else-if ladder</li>
+
+<li>switch</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+int marks = 75;
+
+if(marks >= 35){
+
+    System.out.println("Pass");
+
+}else{
+
+    System.out.println("Fail");
+
+}
+</code></pre>
+
+<h3>💻 Switch Example</h3>
+
+<pre><code>
+int day = 2;
+
+switch(day){
+
+    case 1:
+        System.out.println("Monday");
+        break;
+
+    case 2:
+        System.out.println("Tuesday");
+        break;
+
+    default:
+        System.out.println("Invalid Day");
+
+}
+</code></pre>
+
+<div class="warning">
+
+<b>⚠ Important</b>
+
+<p>
+
+Always use <b>break</b> inside switch to avoid fall-through.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> What happens if break is omitted in a switch statement?
+
+<br>
+
+<b>Answer:</b>
+
+Execution continues to the next case until a break or the end of the switch block is reached.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="loops">9. Loops</h2>
+
+<p>
+Loops are used to execute a block of code repeatedly.
+</p>
+
+<h3>⭐ Types</h3>
+
+<ul>
+
+<li>for loop</li>
+
+<li>while loop</li>
+
+<li>do-while loop</li>
+
+</ul>
+
+<h3>💻 for Loop</h3>
+
+<pre><code>
+for(int i=1; i<=5; i++){
+
+    System.out.println(i);
+
+}
+</code></pre>
+
+<h3>💻 while Loop</h3>
+
+<pre><code>
+int i = 1;
+
+while(i <= 5){
+
+    System.out.println(i);
+
+    i++;
+
+}
+</code></pre>
+
+<h3>💻 do-while Loop</h3>
+
+<pre><code>
+int i = 1;
+
+do{
+
+    System.out.println(i);
+
+    i++;
+
+}while(i <= 5);
+</code></pre>
+
+<h3>⭐ Loop Control Statements</h3>
+
+<ul>
+
+<li>break</li>
+
+<li>continue</li>
+
+</ul>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between while and do-while?
+
+<br>
+
+<b>Answer:</b>
+
+The <b>while</b> loop checks the condition before execution.
+
+The <b>do-while</b> loop executes at least once before checking the condition.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="arrays">10. Arrays</h2>
+
+<p>
+An array stores multiple values of the same data type in contiguous memory locations.
+</p>
+
+<h3>⭐ Features</h3>
+
+<ul>
+
+<li>Fixed size</li>
+
+<li>Stores same data type</li>
+
+<li>Indexed from 0</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+int[] numbers = {10,20,30,40};
+
+System.out.println(numbers[0]);
+
+System.out.println(numbers.length);
+</code></pre>
+
+<h3>💻 Traversing an Array</h3>
+
+<pre><code>
+for(int i=0; i<numbers.length; i++){
+
+    System.out.println(numbers[i]);
+
+}
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Use <code>array.length</code> to get the size of an array.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> What is the default value of an int array?
+
+<br>
+
+<b>Answer:</b>
+
+0
+
+</p>
+
+</div>
+
+<hr>
+
+<hr>
+
+<h2 id="strings">11. Strings</h2>
+
+<p>
+A String is a sequence of characters used to store text.
+In Java, String objects are immutable, meaning their values cannot be changed after creation.
+</p>
+
+<h3>⭐ Common String Methods</h3>
+
+<ul>
+    <li>length()</li>
+    <li>charAt()</li>
+    <li>substring()</li>
+    <li>equals()</li>
+    <li>equalsIgnoreCase()</li>
+    <li>toUpperCase()</li>
+    <li>toLowerCase()</li>
+    <li>contains()</li>
+    <li>replace()</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+String name = "Mashood";
+
+System.out.println(name.length());
+
+System.out.println(name.toUpperCase());
+
+System.out.println(name.charAt(0));
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Use <b>equals()</b> to compare String values instead of <b>==</b>.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Are Strings mutable in Java?
+
+<br>
+
+<b>Answer:</b>
+
+No. String objects are immutable.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="methods">12. Methods</h2>
+
+<p>
+A method is a block of code that performs a specific task.
+Methods improve code reusability and readability.
+</p>
+
+<h3>⭐ Types</h3>
+
+<ul>
+
+<li>Predefined Methods</li>
+
+<li>User-defined Methods</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+public class Main{
+
+    static void greet(){
+
+        System.out.println("Welcome");
+
+    }
+
+    public static void main(String[] args){
+
+        greet();
+
+    }
+
+}
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between Parameters and Arguments?
+
+<br>
+
+<b>Answer:</b>
+
+Parameters are declared in the method definition.
+
+Arguments are the actual values passed while calling the method.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="constructors">13. Constructors</h2>
+
+<p>
+A constructor is a special method that is automatically called when an object is created.
+It has the same name as the class and does not have a return type.
+</p>
+
+<h3>⭐ Types</h3>
+
+<ul>
+
+<li>Default Constructor</li>
+
+<li>Parameterized Constructor</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+class Student{
+
+    String name;
+
+    Student(String name){
+
+        this.name = name;
+
+    }
+
+}
+
+Student s = new Student("Mashood");
+</code></pre>
+
+<div class="warning">
+
+<b>⚠ Important</b>
+
+<p>
+
+Constructors cannot have a return type, not even <b>void</b>.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Can a constructor be overloaded?
+
+<br>
+
+<b>Answer:</b>
+
+Yes. A class can have multiple constructors with different parameters.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="this">14. this Keyword</h2>
+
+<p>
+The <b>this</b> keyword refers to the current object.
+It is commonly used to distinguish instance variables from local variables.
+</p>
+
+<h3>⭐ Uses of this</h3>
+
+<ul>
+
+<li>Refer current object</li>
+
+<li>Access instance variables</li>
+
+<li>Call another constructor</li>
+
+<li>Pass current object as an argument</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+class Student{
+
+    String name;
+
+    Student(String name){
+
+        this.name = name;
+
+    }
+
+}
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Use <b>this.variableName</b> when a local variable and instance variable have the same name.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Why is the <b>this</b> keyword used?
+
+<br>
+
+<b>Answer:</b>
+
+It refers to the current object and helps distinguish instance variables from local variables.
+
+</p>
+
+</div>
+
+<hr>
+<hr>
+
+<h2 id="static">15. static Keyword</h2>
+
+<p>
+The <b>static</b> keyword is used for variables, methods, and blocks that belong
+to the class rather than an object.
+</p>
+
+<h3>⭐ Uses of static</h3>
+
+<ul>
+
+<li>Static Variable</li>
+
+<li>Static Method</li>
+
+<li>Static Block</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+class Student{
+
+    static String college = "CIT";
+
+    String name;
+
+}
+
+public class Main{
+
+    public static void main(String[] args){
+
+        Student s1 = new Student();
+
+        Student s2 = new Student();
+
+        System.out.println(Student.college);
+
+    }
+
+}
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+A static member belongs to the class, so it can be accessed using the class name.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Can a static method access non-static variables directly?
+
+<br>
+
+<b>Answer:</b>
+
+No. A static method can directly access only static members.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="inheritance">16. Inheritance</h2>
+
+<p>
+Inheritance allows one class to acquire the properties and methods of another class.
+It promotes code reusability.
+</p>
+
+<h3>⭐ Types of Inheritance</h3>
+
+<ul>
+
+<li>Single</li>
+
+<li>Multilevel</li>
+
+<li>Hierarchical</li>
+
+</ul>
+
+<p><b>Note:</b> Java does not support multiple inheritance using classes.</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+class Animal{
+
+    void sound(){
+
+        System.out.println("Animal Sound");
+
+    }
+
+}
+
+class Dog extends Animal{
+
+    void bark(){
+
+        System.out.println("Dog Barks");
+
+    }
+
+}
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Why doesn't Java support multiple inheritance through classes?
+
+<br>
+
+<b>Answer:</b>
+
+To avoid ambiguity (Diamond Problem). Java uses interfaces to achieve multiple inheritance.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="polymorphism">17. Polymorphism</h2>
+
+<p>
+Polymorphism means "many forms". It allows the same method to perform different tasks.
+</p>
+
+<h3>⭐ Types</h3>
+
+<ul>
+
+<li>Method Overloading (Compile-time)</li>
+
+<li>Method Overriding (Run-time)</li>
+
+</ul>
+
+<h3>📊 Comparison</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Method Overloading</th>
+
+<th>Method Overriding</th>
+
+</tr>
+
+<tr>
+
+<td>Same Class</td>
+
+<td>Parent & Child Class</td>
+
+</tr>
+
+<tr>
+
+<td>Different Parameters</td>
+
+<td>Same Parameters</td>
+
+</tr>
+
+<tr>
+
+<td>Compile-time</td>
+
+<td>Run-time</td>
+
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+class Math{
+
+    int add(int a,int b){
+
+        return a+b;
+
+    }
+
+    int add(int a,int b,int c){
+
+        return a+b+c;
+
+    }
+
+}
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between Method Overloading and Method Overriding?
+
+<br>
+
+<b>Answer:</b>
+
+Overloading occurs in the same class with different parameters.
+
+Overriding occurs in parent and child classes with the same method signature.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="abstraction">18. Abstraction</h2>
+
+<p>
+Abstraction hides implementation details and shows only essential functionality.
+It can be achieved using abstract classes and interfaces.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+abstract class Animal{
+
+    abstract void sound();
+
+}
+
+class Dog extends Animal{
+
+    void sound(){
+
+        System.out.println("Bark");
+
+    }
+
+}
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Abstract classes cannot be instantiated directly.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Can we create an object of an abstract class?
+
+<br>
+
+<b>Answer:</b>
+
+No. An abstract class cannot be instantiated.
+
+</p>
+
+</div>
+
+<hr>
+<hr>
+
+<h2 id="interface">19. Interface</h2>
+
+<p>
+An <b>Interface</b> is a blueprint of a class. It contains method declarations
+that implementing classes must define. It is used to achieve abstraction and
+multiple inheritance.
+</p>
+
+<h3>⭐ Key Points</h3>
+
+<ul>
+    <li>Supports multiple inheritance.</li>
+    <li>Cannot be instantiated.</li>
+    <li>Methods are public and abstract by default.</li>
+    <li>Variables are public, static and final.</li>
+</ul>
+
+<h3>📊 Interface vs Abstract Class</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+<th>Interface</th>
+<th>Abstract Class</th>
+</tr>
+
+<tr>
+<td>Supports multiple inheritance</td>
+<td>Does not support multiple inheritance</td>
+</tr>
+
+<tr>
+<td>No constructors</td>
+<td>Can have constructors</td>
+</tr>
+
+<tr>
+<td>Methods are abstract by default</td>
+<td>Can have abstract and concrete methods</td>
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+interface Animal{
+
+    void sound();
+
+}
+
+class Dog implements Animal{
+
+    public void sound(){
+
+        System.out.println("Bark");
+
+    }
+
+}
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Why do we use interfaces?
+
+<br>
+
+<b>Answer:</b>
+
+To achieve abstraction and multiple inheritance.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="exception">20. Exception Handling</h2>
+
+<p>
+Exception Handling allows a program to handle runtime errors without crashing.
+</p>
+
+<h3>⭐ Keywords</h3>
+
+<ul>
+
+<li>try</li>
+
+<li>catch</li>
+
+<li>finally</li>
+
+<li>throw</li>
+
+<li>throws</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+try{
+
+    int x = 10/0;
+
+}catch(ArithmeticException e){
+
+    System.out.println("Cannot divide by zero");
+
+}finally{
+
+    System.out.println("Program Ended");
+
+}
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+The <b>finally</b> block executes whether an exception occurs or not.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between throw and throws?
+
+<br>
+
+<b>Answer:</b>
+
+<b>throw</b> is used to explicitly throw an exception.
+
+<b>throws</b> declares exceptions that a method may throw.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="collections">21. Collections Framework</h2>
+
+<p>
+The Java Collections Framework provides classes and interfaces to store and manipulate groups of objects.
+</p>
+
+<h3>⭐ Common Collections</h3>
+
+<table border="1" cellpadding="8">
+
+<tr>
+<th>Collection</th>
+<th>Use</th>
+</tr>
+
+<tr>
+<td>ArrayList</td>
+<td>Resizable Array</td>
+</tr>
+
+<tr>
+<td>LinkedList</td>
+<td>Fast Insertion/Deletion</td>
+</tr>
+
+<tr>
+<td>HashSet</td>
+<td>Unique Elements</td>
+</tr>
+
+<tr>
+<td>HashMap</td>
+<td>Key-Value Pairs</td>
+</tr>
+
+<tr>
+<td>Stack</td>
+<td>LIFO</td>
+</tr>
+
+<tr>
+<td>Queue</td>
+<td>FIFO</td>
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+ArrayList<String> names = new ArrayList<>();
+
+names.add("Java");
+
+names.add("Python");
+
+System.out.println(names);
+</code></pre>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between Array and ArrayList?
+
+<br>
+
+<b>Answer:</b>
+
+Array has fixed size.
+
+ArrayList can grow dynamically.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="filehandling">22. File Handling</h2>
+
+<p>
+File Handling is used to create, read, write and delete files.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+File file = new File("demo.txt");
+
+System.out.println(file.exists());
+</code></pre>
+
+<h3>⭐ Common Classes</h3>
+
+<ul>
+
+<li>File</li>
+
+<li>FileReader</li>
+
+<li>FileWriter</li>
+
+<li>BufferedReader</li>
+
+<li>BufferedWriter</li>
+
+</ul>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Which class is used to create a file?
+
+<br>
+
+<b>Answer:</b>
+
+File class.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="multithreading">23. Multithreading (Basics)</h2>
+
+<p>
+Multithreading allows multiple threads to execute simultaneously, improving application performance.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+class MyThread extends Thread{
+
+    public void run(){
+
+        System.out.println("Thread Running");
+
+    }
+
+}
+
+MyThread t = new MyThread();
+
+t.start();
+</code></pre>
+
+<div class="tip">
+
+<b>💡 Tip</b>
+
+<p>
+
+Use <b>start()</b> instead of calling <b>run()</b> directly.
+
+</p>
+
+</div>
+
+<div class="interview">
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between start() and run()?
+
+<br>
+
+<b>Answer:</b>
+
+start() creates a new thread.
+
+run() executes like a normal method.
+
+</p>
+
+</div>
+
+<hr>
+
+<h2 id="interview">24. Frequently Asked Interview Questions</h2>
+
+<ol>
+
+<li>Difference between JDK, JRE and JVM?</li>
+
+<li>Difference between == and equals()?</li>
+
+<li>Difference between Array and ArrayList?</li>
+
+<li>Difference between Interface and Abstract Class?</li>
+
+<li>Difference between Method Overloading and Overriding?</li>
+
+<li>What is Inheritance?</li>
+
+<li>What is Polymorphism?</li>
+
+<li>What is Exception Handling?</li>
+
+<li>Difference between throw and throws?</li>
+
+<li>What is Multithreading?</li>
+
+</ol>
+
+<hr>
+
+<h2 id="practice">25. Practice Programs</h2>
+
+<ul>
+
+<li>Palindrome Number</li>
+
+<li>Prime Number</li>
+
+<li>Factorial</li>
+
+<li>Fibonacci Series</li>
+
+<li>Armstrong Number</li>
+
+<li>Reverse String</li>
+
+<li>Second Largest Element</li>
+
+<li>Binary Search</li>
+
+<li>Student Management System</li>
+
+<li>Bank Management System</li>
+
+</ul>
+
+<hr>
+
+<div class="revision">
+
+<h2>🎉 Quick Revision</h2>
+
+<ul>
+
+<li>✔ Java is Platform Independent.</li>
+
+<li>✔ JVM executes bytecode.</li>
+
+<li>✔ JDK = JRE + Development Tools.</li>
+
+<li>✔ Java follows OOP principles.</li>
+
+<li>✔ Constructors initialize objects.</li>
+
+<li>✔ Interfaces support multiple inheritance.</li>
+
+<li>✔ Collections store groups of objects.</li>
+
+<li>✔ Exception Handling prevents program crashes.</li>
+
+<li>✔ Multithreading improves performance.</li>
+
+</ul>
+
+</div>

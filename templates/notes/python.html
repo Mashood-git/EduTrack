@@ -1,0 +1,1025 @@
+<h1>🐍 Python Programming Notes</h1>
+
+<hr>
+
+<!-- ==========================
+        CONTENTS
+========================== -->
+
+<h2>📚 Contents</h2>
+
+<ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#variables">Variables</a></li>
+    <li><a href="#datatypes">Data Types</a></li>
+    <li><a href="#operators">Operators</a></li>
+    <li><a href="#loops">Loops</a></li>
+    <li><a href="#functions">Functions</a></li>
+    <li><a href="#oop">Object-Oriented Programming</a></li>
+</ul>
+
+<hr>
+
+
+<h2 id="introduction">1. Introduction to Python</h2>
+
+<p>
+Python is a high-level, interpreted programming language created by
+<b>Guido van Rossum</b> and released in <b>1991</b>.
+It is known for its simple syntax, readability, and wide range of applications.
+</p>
+
+<h3>⭐ Key Points</h3>
+
+<ul>
+    <li>Easy to learn and use</li>
+    <li>Open-source and free</li>
+    <li>Platform independent</li>
+    <li>Supports Object-Oriented Programming</li>
+    <li>Large collection of libraries</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+print("Hello, World!")
+</code></pre>
+
+<h3>⚠ Important</h3>
+
+<p>
+Python is <b>case-sensitive</b>.
+For example, <code>print()</code> and <code>Print()</code> are different.
+</p>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Who developed Python?
+<br>
+<b>Answer:</b> Guido van Rossum.
+</p>
+
+<hr>
+
+<h2 id="features">2. Features of Python</h2>
+
+<ul>
+    <li>Simple and readable syntax</li>
+    <li>Interpreted language</li>
+    <li>Dynamically typed</li>
+    <li>Cross-platform support</li>
+    <li>Large standard library</li>
+    <li>Supports multiple programming paradigms</li>
+</ul>
+
+<h3>💡 Applications</h3>
+
+<ul>
+    <li>Web Development</li>
+    <li>Artificial Intelligence</li>
+    <li>Machine Learning</li>
+    <li>Automation</li>
+    <li>Data Science</li>
+    <li>Cyber Security</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Is Python compiled or interpreted?
+<br>
+<b>Answer:</b> Python is an interpreted language.
+</p>
+
+<hr>
+
+<hr>
+
+<h2 id="variables">3. Variables</h2>
+
+<p>
+A variable is a named container used to store data values.
+Python automatically assigns the data type based on the value.
+</p>
+
+<h3>⭐ Rules</h3>
+
+<ul>
+    <li>Must start with a letter or underscore (_)</li>
+    <li>Cannot start with a number</li>
+    <li>Case-sensitive (age and Age are different)</li>
+    <li>Use meaningful variable names</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+name = "Mashood"
+age = 22
+height = 6.0
+is_student = True
+</code></pre>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Does Python require variable declaration?<br>
+<b>Answer:</b> No. Python automatically creates variables when a value is assigned.
+</p>
+
+<hr>
+
+<h2 id="datatypes">4. Data Types</h2>
+
+<p>
+A data type specifies the type of value stored in a variable.
+</p>
+
+<table border="1" cellpadding="8">
+
+<tr>
+<th>Data Type</th>
+<th>Example</th>
+</tr>
+
+<tr>
+<td>int</td>
+<td>10</td>
+</tr>
+
+<tr>
+<td>float</td>
+<td>3.14</td>
+</tr>
+
+<tr>
+<td>str</td>
+<td>"Hello"</td>
+</tr>
+
+<tr>
+<td>bool</td>
+<td>True / False</td>
+</tr>
+
+<tr>
+<td>list</td>
+<td>[1,2,3]</td>
+</tr>
+
+<tr>
+<td>tuple</td>
+<td>(1,2,3)</td>
+</tr>
+
+<tr>
+<td>set</td>
+<td>{1,2,3}</td>
+</tr>
+
+<tr>
+<td>dict</td>
+<td>{"name":"Mashood"}</td>
+</tr>
+
+</table>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+x = 10
+print(type(x))
+</code></pre>
+
+Output
+
+<pre><code>
+&lt;class 'int'&gt;
+</code></pre>
+
+<hr>
+
+<h2 id="typecasting">5. Type Casting</h2>
+
+<p>
+Type casting means converting one data type into another.
+</p>
+
+<h3>⭐ Types</h3>
+
+<ul>
+<li>Implicit Type Casting (Automatic)</li>
+<li>Explicit Type Casting (Manual)</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+age = "22"
+
+age = int(age)
+
+print(age + 5)
+</code></pre>
+
+Output
+
+<pre><code>
+27
+</code></pre>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> What is the difference between implicit and explicit type casting?<br>
+
+<b>Answer:</b>
+
+Implicit conversion is done automatically by Python,
+whereas explicit conversion is done by the programmer using functions like int(), float(), and str().
+</p>
+
+<hr>
+
+<h2 id="operators">6. Operators</h2>
+
+<p>
+Operators are symbols used to perform operations on variables and values.
+</p>
+
+<h3>⭐ Types of Operators</h3>
+
+<ul>
+
+<li>Arithmetic (+, -, *, /, %, //, **)</li>
+
+<li>Comparison (==, !=, >, <, >=, <=)</li>
+
+<li>Logical (and, or, not)</li>
+
+<li>Assignment (=, +=, -=)</li>
+
+<li>Membership (in, not in)</li>
+
+<li>Identity (is, is not)</li>
+
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+a = 10
+b = 3
+
+print(a + b)
+print(a % b)
+print(a > b)
+</code></pre>
+
+<h3>⚠ Important</h3>
+
+<ul>
+<li><b>=</b> → Assignment</li>
+<li><b>==</b> → Comparison</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+
+<b>Q.</b> Difference between == and is ?
+
+<br>
+
+<b>Answer:</b>
+
+== compares values,
+
+is compares memory location (object identity).
+
+</p>
+
+<hr>
+<hr>
+
+<h2 id="input">7. Input & Output</h2>
+
+<p>
+Python uses <code>input()</code> to accept user input and
+<code>print()</code> to display output.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+name = input("Enter your name: ")
+
+print("Welcome", name)
+</code></pre>
+
+<h3>⚠ Important</h3>
+
+<p>
+The <code>input()</code> function always returns a string.
+Use <code>int()</code> or <code>float()</code> when numerical input is required.
+</p>
+
+<pre><code>
+age = int(input("Enter Age: "))
+</code></pre>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> What is the return type of <code>input()</code>?<br>
+<b>Answer:</b> String (<code>str</code>)
+</p>
+
+<hr>
+
+<h2 id="condition">8. Conditional Statements</h2>
+
+<p>
+Conditional statements help execute different blocks of code based on conditions.
+</p>
+
+<h3>⭐ Types</h3>
+
+<ul>
+    <li>if</li>
+    <li>if-else</li>
+    <li>if-elif-else</li>
+    <li>Nested if</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+age = 20
+
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not Eligible")
+</code></pre>
+
+<h3>⚠ Important</h3>
+
+<p>
+Python uses indentation instead of curly braces ({ }).
+</p>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> What is indentation in Python?<br>
+<b>Answer:</b> Indentation defines the block of code and is mandatory.
+</p>
+
+<hr>
+
+<h2 id="loops">9. Loops</h2>
+
+<p>
+Loops are used to execute a block of code repeatedly.
+</p>
+
+<h3>⭐ Types</h3>
+
+<ul>
+    <li>for loop</li>
+    <li>while loop</li>
+</ul>
+
+<h3>💻 for Loop</h3>
+
+<pre><code>
+for i in range(5):
+    print(i)
+</code></pre>
+
+<h3>💻 while Loop</h3>
+
+<pre><code>
+count = 1
+
+while count <= 5:
+    print(count)
+    count += 1
+</code></pre>
+
+<h3>⭐ Loop Control Statements</h3>
+
+<ul>
+    <li>break</li>
+    <li>continue</li>
+    <li>pass</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Difference between for and while loop?<br>
+
+<b>Answer:</b>
+
+For loop is used when the number of iterations is known.
+
+While loop is used when the condition controls the iterations.
+</p>
+
+<hr>
+
+<h2 id="strings">10. Strings</h2>
+
+<p>
+A string is a sequence of characters enclosed in single or double quotes.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+name = "Mashood"
+
+print(name.upper())
+print(name.lower())
+print(len(name))
+</code></pre>
+
+<h3>⭐ Common String Methods</h3>
+
+<ul>
+    <li>upper()</li>
+    <li>lower()</li>
+    <li>strip()</li>
+    <li>replace()</li>
+    <li>split()</li>
+    <li>find()</li>
+    <li>count()</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Are strings mutable in Python?<br>
+
+<b>Answer:</b>
+
+No. Strings are immutable.
+</p>
+
+<hr>
+<hr>
+
+<h2 id="lists">11. Lists</h2>
+
+<p>
+A list is an ordered, mutable collection that can store multiple values of different data types.
+</p>
+
+<h3>⭐ Features</h3>
+
+<ul>
+    <li>Ordered</li>
+    <li>Mutable (Can be modified)</li>
+    <li>Allows duplicate values</li>
+    <li>Supports indexing</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+fruits = ["Apple", "Mango", "Orange"]
+
+print(fruits[0])
+
+fruits.append("Banana")
+
+print(fruits)
+</code></pre>
+
+<h3>⭐ Common Methods</h3>
+
+<ul>
+    <li>append()</li>
+    <li>insert()</li>
+    <li>remove()</li>
+    <li>pop()</li>
+    <li>sort()</li>
+    <li>reverse()</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Are lists mutable?<br>
+<b>Answer:</b> Yes.
+</p>
+
+<hr>
+
+<h2 id="tuples">12. Tuples</h2>
+
+<p>
+A tuple is an ordered, immutable collection of elements.
+</p>
+
+<h3>⭐ Features</h3>
+
+<ul>
+    <li>Ordered</li>
+    <li>Immutable</li>
+    <li>Allows duplicates</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+numbers = (10, 20, 30)
+
+print(numbers[1])
+</code></pre>
+
+<h3>⭐ Common Methods</h3>
+
+<ul>
+    <li>count()</li>
+    <li>index()</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Difference between List and Tuple?<br>
+
+<b>Answer:</b>
+
+Lists are mutable, whereas tuples are immutable.
+</p>
+
+<hr>
+
+<h2 id="sets">13. Sets</h2>
+
+<p>
+A set is an unordered collection of unique elements.
+</p>
+
+<h3>⭐ Features</h3>
+
+<ul>
+    <li>Unordered</li>
+    <li>No duplicate values</li>
+    <li>Mutable</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+numbers = {1,2,3,3,4}
+
+print(numbers)
+</code></pre>
+
+Output
+
+<pre><code>
+{1,2,3,4}
+</code></pre>
+
+<h3>⭐ Common Methods</h3>
+
+<ul>
+    <li>add()</li>
+    <li>remove()</li>
+    <li>discard()</li>
+    <li>clear()</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Why do we use Sets?<br>
+
+<b>Answer:</b>
+
+To store unique values and remove duplicates.
+</p>
+
+<hr>
+
+<h2 id="dictionary">14. Dictionaries</h2>
+
+<p>
+A dictionary stores data in key-value pairs.
+</p>
+
+<h3>⭐ Features</h3>
+
+<ul>
+    <li>Mutable</li>
+    <li>Keys are unique</li>
+    <li>Fast data lookup</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+student = {
+
+    "name":"Mashood",
+
+    "age":22,
+
+    "city":"Mysore"
+
+}
+
+print(student["name"])
+</code></pre>
+
+<h3>⭐ Common Methods</h3>
+
+<ul>
+    <li>keys()</li>
+    <li>values()</li>
+    <li>items()</li>
+    <li>get()</li>
+    <li>update()</li>
+    <li>pop()</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Can a dictionary have duplicate keys?<br>
+
+<b>Answer:</b>
+
+No. Dictionary keys must be unique.
+</p>
+
+<hr>
+<hr>
+
+<h2 id="functions">15. Functions</h2>
+
+<p>
+A function is a block of reusable code that performs a specific task.
+</p>
+
+<h3>⭐ Advantages</h3>
+
+<ul>
+    <li>Code Reusability</li>
+    <li>Reduces Code Duplication</li>
+    <li>Easy to Maintain</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+def greet(name):
+    return "Hello " + name
+
+print(greet("Mashood"))
+</code></pre>
+
+<h3>⭐ Types</h3>
+
+<ul>
+    <li>Built-in Functions</li>
+    <li>User-defined Functions</li>
+</ul>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Difference between a parameter and an argument?<br>
+<b>Answer:</b> Parameters are defined in the function, while arguments are the values passed during the function call.
+</p>
+
+<hr>
+
+<h2 id="lambda">16. Lambda Functions</h2>
+
+<p>
+A lambda function is a small anonymous function written in a single line.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+square = lambda x: x * x
+
+print(square(5))
+</code></pre>
+
+Output
+
+<pre><code>
+25
+</code></pre>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> When should Lambda functions be used?<br>
+<b>Answer:</b> For short, simple functions that are used only once.
+</p>
+
+<hr>
+
+<h2 id="filehandling">17. File Handling</h2>
+
+<p>
+File handling is used to read from and write data to files.
+</p>
+
+<h3>⭐ File Modes</h3>
+
+<ul>
+    <li>r → Read</li>
+    <li>w → Write</li>
+    <li>a → Append</li>
+    <li>x → Create</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+file = open("data.txt", "r")
+
+print(file.read())
+
+file.close()
+</code></pre>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Why should we close a file?<br>
+<b>Answer:</b> To free system resources after use.
+</p>
+
+<hr>
+
+<h2 id="exception">18. Exception Handling</h2>
+
+<p>
+Exception handling prevents the program from crashing due to runtime errors.
+</p>
+
+<h3>⭐ Keywords</h3>
+
+<ul>
+    <li>try</li>
+    <li>except</li>
+    <li>finally</li>
+    <li>raise</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+try:
+    print(10/0)
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+</code></pre>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> What is an Exception?<br>
+<b>Answer:</b> An unexpected event that interrupts normal program execution.
+</p>
+
+<hr>
+
+<h2 id="oop">19. Object-Oriented Programming (OOP)</h2>
+
+<p>
+OOP is a programming paradigm based on classes and objects.
+</p>
+
+<h3>⭐ Four Pillars</h3>
+
+<ul>
+    <li>Encapsulation</li>
+    <li>Inheritance</li>
+    <li>Polymorphism</li>
+    <li>Abstraction</li>
+</ul>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+class Student:
+
+    def __init__(self, name):
+        self.name = name
+
+student = Student("Mashood")
+
+print(student.name)
+</code></pre>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> What is Inheritance?<br>
+<b>Answer:</b> It allows one class to inherit properties and methods from another class.
+</p>
+
+<hr>
+
+<h2 id="modules">20. Modules & Packages</h2>
+
+<p>
+A module is a Python file containing functions and variables.
+A package is a collection of modules.
+</p>
+
+<h3>💻 Example</h3>
+
+<pre><code>
+import math
+
+print(math.sqrt(25))
+</code></pre>
+
+<h3>🎯 Interview Question</h3>
+
+<p>
+<b>Q.</b> Difference between Module and Package?<br>
+
+<b>Answer:</b>
+
+Module = Single Python file.
+
+Package = Collection of Modules.
+</p>
+
+<hr>
+
+<h2 id="builtin">21. Common Built-in Functions</h2>
+
+<table border="1" cellpadding="8">
+
+<tr>
+
+<th>Function</th>
+
+<th>Purpose</th>
+
+</tr>
+
+<tr>
+
+<td>len()</td>
+
+<td>Length of object</td>
+
+</tr>
+
+<tr>
+
+<td>type()</td>
+
+<td>Returns data type</td>
+
+</tr>
+
+<tr>
+
+<td>input()</td>
+
+<td>User input</td>
+
+</tr>
+
+<tr>
+
+<td>print()</td>
+
+<td>Display output</td>
+
+</tr>
+
+<tr>
+
+<td>range()</td>
+
+<td>Generate sequence</td>
+
+</tr>
+
+<tr>
+
+<td>sum()</td>
+
+<td>Add numbers</td>
+
+</tr>
+
+<tr>
+
+<td>max()</td>
+
+<td>Largest value</td>
+
+</tr>
+
+<tr>
+
+<td>min()</td>
+
+<td>Smallest value</td>
+
+</tr>
+
+</table>
+
+<hr>
+
+<h2 id="interview">22. Frequently Asked Interview Questions</h2>
+
+<ol>
+
+<li>Why is Python called an interpreted language?</li>
+
+<li>Difference between List and Tuple?</li>
+
+<li>Difference between == and is?</li>
+
+<li>What are Lambda Functions?</li>
+
+<li>Explain OOP in Python.</li>
+
+<li>What is Exception Handling?</li>
+
+<li>Difference between Module and Package?</li>
+
+<li>What are mutable and immutable data types?</li>
+
+<li>Explain List Comprehension.</li>
+
+<li>Why is Python popular for AI and ML?</li>
+
+</ol>
+
+<hr>
+
+<h2 id="practice">23. Practice Programs</h2>
+
+<ul>
+
+<li>Palindrome Number</li>
+
+<li>Prime Number</li>
+
+<li>Factorial</li>
+
+<li>Fibonacci Series</li>
+
+<li>Armstrong Number</li>
+
+<li>Reverse String</li>
+
+<li>Count Vowels</li>
+
+<li>Second Largest Number</li>
+
+<li>Binary Search</li>
+
+<li>Student Management System</li>
+
+</ul>
+
+<hr>
+
+<h2>🎉 Quick Revision</h2>
+
+<ul>
+
+<li>✔ Python is interpreted and dynamically typed.</li>
+
+<li>✔ Lists are mutable, Tuples are immutable.</li>
+
+<li>✔ Sets store unique values.</li>
+
+<li>✔ Dictionaries use key-value pairs.</li>
+
+<li>✔ Functions improve code reusability.</li>
+
+<li>✔ OOP consists of Encapsulation, Inheritance, Polymorphism and Abstraction.</li>
+
+<li>✔ Exception Handling prevents runtime errors.</li>
+
+<li>✔ Modules help organize code.</li>
+
+</ul>

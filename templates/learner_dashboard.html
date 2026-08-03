@@ -18,7 +18,7 @@
 <div class="dashboard-container">
 
     <!-- ======================
-        SIDEBAR
+            SIDEBAR
     ======================= -->
 
     <aside class="sidebar">
@@ -33,45 +33,75 @@
         <ul class="sidebar-menu">
 
             <li class="active">
+
                 <a href="{{ url_for('learner_dashboard') }}">
+
                     <i class="fa-solid fa-house"></i>
+
                     Dashboard
+
                 </a>
+
             </li>
 
             <li>
+
                 <a href="{{ url_for('learner_courses') }}">
+
                     <i class="fa-solid fa-book-open"></i>
+
                     Explore Courses
+
                 </a>
+
             </li>
 
             <li>
-                <a href="#">
+
+                <a href="{{ url_for('learner_progress') }}">
+
                     <i class="fa-solid fa-chart-line"></i>
+
                     My Progress
+
                 </a>
+
             </li>
 
             <li>
-                <a href="#">
+
+                <a href="{{ url_for('learner_certificates') }}">
+
                     <i class="fa-solid fa-award"></i>
+
                     Certificates
+
                 </a>
+
             </li>
 
             <li>
-                <a href="#">
+
+                <a href="{{ url_for('learner_profile') }}">
+
                     <i class="fa-solid fa-user"></i>
+
                     My Profile
+
                 </a>
+
             </li>
 
             <li>
-                <a href="{{ url_for('logout') }}">
+
+                <a href="#">
+
                     <i class="fa-solid fa-right-from-bracket"></i>
+
                     Logout
+
                 </a>
+
             </li>
 
         </ul>
@@ -128,6 +158,70 @@
             </div>
 
         </section>
+        <!-- Continue Learning -->
+
+        <section class="continue-learning">
+
+            <h2>▶ Continue Learning</h2>
+
+            <div class="continue-card">
+
+                <div>
+
+                    <h3>🐍 Python Programming</h3>
+
+                    <p>
+                        Continue learning Python from where you left off.
+                    </p>
+
+                </div>
+
+                <a href="{{ url_for('learner_courses') }}"
+                class="continue-btn">
+
+                    Continue →
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Recent Courses -->
+
+        <section class="recent-courses">
+
+            <h2>📚 Popular Courses</h2>
+
+            <div class="recent-grid">
+
+                <div class="recent-course">
+
+                    <h3>🐍 Python</h3>
+
+                    <p>Beginner Friendly</p>
+
+                </div>
+
+                <div class="recent-course">
+
+                    <h3>☕ Java</h3>
+
+                    <p>Object Oriented Programming</p>
+
+                </div>
+
+                <div class="recent-course">
+
+                    <h3>🗄 SQL</h3>
+
+                    <p>Database Fundamentals</p>
+
+                </div>
+
+            </div>
+
+        </section>
 
         <!-- Profile -->
 
@@ -148,6 +242,20 @@
                 <p><strong>Joined:</strong> {{ learner['joined_date'] }}</p>
 
             </div>
+
+        </section>
+
+        <!-- Quote -->
+
+        <section class="quote-card">
+
+            <h2>💡 Quote of the Day</h2>
+
+            <p>
+
+                "The beautiful thing about learning is that nobody can take it away from you."
+
+            </p>
 
         </section>
 
