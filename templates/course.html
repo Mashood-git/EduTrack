@@ -5,8 +5,19 @@
 
     <meta charset="UTF-8">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{{ course['course_name'] }}</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+    <!-- New design-system chrome for the header/video area -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/app.css') }}">
+
+    <!-- Original stylesheets — kept as-is so the notes content below renders unchanged -->
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
 
@@ -17,23 +28,65 @@
 
 <body>
 
+<!-- ==========================
+        BACK LINK
+=========================== -->
+
+<div class="course-topbar">
+
+    <a href="{{ url_for('learner_courses') }}" class="back-to-courses">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Courses
+    </a>
+
+</div>
+
+<!-- ==========================
+        COURSE HERO
+=========================== -->
+
+<div class="course-hero-card">
+
+    <div class="course-hero-inner">
+
+        <div class="course-hero-icon">{{ course['icon'] }}</div>
+
+        <div class="course-hero-text">
+
+            <h1>{{ course['course_name'] }}</h1>
+
+            <span class="instructor-badge">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                {{ instructor['instructor_name'] }}
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================
+        VIDEO PLAYLIST
+=========================== -->
+
+<div class="video-card">
+
+    <div class="video-frame">
+
+        <iframe
+            width="100%"
+            height="500"
+            src="{{ instructor['playlist_url'] }}"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+</div>
+
 <div class="course-container">
-
-    <h1>{{ course['icon'] }} {{ course['course_name'] }}</h1>
-
-    <h3>👨‍🏫 Instructor: {{ instructor['instructor_name'] }}</h3>
-
-    <br>
-
-    <h2>🎥 Complete Playlist</h2>
-
-    <iframe
-        width="100%"
-        height="500"
-        src="{{ instructor['playlist_url'] }}"
-        frameborder="0"
-        allowfullscreen>
-    </iframe>
 
     <!-- ==========================
             DOWNLOAD NOTES
