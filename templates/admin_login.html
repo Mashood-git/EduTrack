@@ -20,11 +20,14 @@
 
 <body>
 
-<div class="login-container">
+<div class="admin-login-container">
 
-    <div class="login-card">
+    <div class="admin-login-card">
 
-        <div class="login-icon">
+        <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
+             class="admin-logo">
+
+        <div class="admin-icon">
 
             <i class="fa-solid fa-user-shield"></i>
 
@@ -32,29 +35,63 @@
 
         <h1>EduTrack Admin</h1>
 
-        <p>Administrator Login Panel</p>
+        <p class="subtitle">
+
+            Secure Administrator Portal
+
+        </p>
+
+        {% if error %}
+
+        <div class="login-error">
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
 
         <form method="POST">
 
-            <input
-                type="email"
-                name="email"
-                placeholder="Admin Email"
-                required>
+            <div class="input-group">
 
-            <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                required>
+                <label>Email Address</label>
 
-            <button type="submit">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter admin email"
+                    required>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    required>
+
+            </div>
+
+            <button class="admin-login-btn">
 
                 Login
+                <i class="fa-solid fa-arrow-right"></i>
 
             </button>
 
         </form>
+
+        <a href="{{ url_for('home') }}"
+           class="back-home">
+
+            ← Back to Home
+
+        </a>
 
     </div>
 

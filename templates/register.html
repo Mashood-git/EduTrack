@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>EduTrack | Register Learner</title>
 
     <!-- Main CSS -->
@@ -12,13 +17,14 @@
     <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <!-- Brand -->
+    <!-- ================= BRAND ================= -->
 
     <div class="logo-container register-logo">
 
@@ -31,41 +37,64 @@
             <h1>EduTrack</h1>
 
             <p class="logo-tagline">
+
                 AI-Powered Learning Platform
+
             </p>
 
         </div>
 
     </div>
 
-
-    <!-- Heading -->
+    <!-- ================= PAGE TITLE ================= -->
 
     <section class="page-title">
 
         <h2>
+
             <i class="fa-solid fa-user-plus"></i>
+
             Register New Learner
+
         </h2>
 
         <p>
-            Add a learner to EduTrack and begin tracking their
-            learning journey from a single dashboard.
+
+            Create a new learner account and start their learning journey.
+
         </p>
 
     </section>
 
-
-    <!-- Registration Form -->
+    <!-- ================= FORM ================= -->
 
     <section class="form-container">
+
+        <!-- Error Message -->
+
+        {% if error %}
+
+        <div class="error-message">
+
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
 
         <form action="{{ url_for('register_learner') }}"
               method="POST">
 
+            <!-- Full Name -->
+
             <label for="learner_name">
+
                 <i class="fa-solid fa-user"></i>
+
                 Full Name
+
             </label>
 
             <input
@@ -77,10 +106,14 @@
                 autocomplete="name"
                 required>
 
+            <!-- Email -->
 
             <label for="learner_email">
+
                 <i class="fa-solid fa-envelope"></i>
+
                 Email Address
+
             </label>
 
             <input
@@ -91,10 +124,14 @@
                 autocomplete="email"
                 required>
 
+            <!-- Password -->
 
             <label for="learner_password">
+
                 <i class="fa-solid fa-lock"></i>
+
                 Password
+
             </label>
 
             <input
@@ -105,10 +142,14 @@
                 autocomplete="new-password"
                 required>
 
+            <!-- Date of Birth -->
 
             <label for="learner_dob">
+
                 <i class="fa-solid fa-calendar-days"></i>
+
                 Date of Birth
+
             </label>
 
             <input
@@ -117,10 +158,14 @@
                 name="learner_dob"
                 required>
 
+            <!-- Learning Path -->
 
             <label for="learner_skill">
+
                 <i class="fa-solid fa-book-open"></i>
+
                 Learning Path
+
             </label>
 
             <select
@@ -129,21 +174,33 @@
                 required>
 
                 <option value="">Choose Learning Path</option>
+
                 <option value="Python">Python</option>
+
                 <option value="Java">Java</option>
+
                 <option value="Full Stack Web Development">Full Stack Web Development</option>
+
                 <option value="AI & Machine Learning">AI & Machine Learning</option>
+
                 <option value="AWS Cloud">AWS Cloud</option>
+
                 <option value="SQL & Databases">SQL & Databases</option>
+
                 <option value="Data Science">Data Science</option>
+
                 <option value="Cyber Security">Cyber Security</option>
 
             </select>
 
+            <!-- Skill Level -->
 
             <label for="learner_level">
+
                 <i class="fa-solid fa-chart-line"></i>
+
                 Skill Level
+
             </label>
 
             <select
@@ -161,6 +218,7 @@
 
             </select>
 
+            <!-- Buttons -->
 
             <div class="button-group">
 
@@ -174,13 +232,12 @@
 
                 </button>
 
-
-                <a href="{{ url_for('home') }}"
+                <a href="{{ url_for('admin_dashboard') }}"
                    class="outline-btn">
 
                     <i class="fa-solid fa-arrow-left"></i>
 
-                    Dashboard
+                    Back to Dashboard
 
                 </a>
 
@@ -192,6 +249,7 @@
 
 </div>
 
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
@@ -212,4 +270,5 @@
 </footer>
 
 </body>
+
 </html>

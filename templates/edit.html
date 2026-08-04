@@ -1,233 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduTrack | Edit Learner</title>
 
-    <!-- Main CSS -->
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Learner | EduTrack</title>
+
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="dashboard-container">
 
-    <!-- ================= BRAND ================= -->
+    <!-- ======================
+            SIDEBAR
+    ======================= -->
 
-    <div class="logo-container register-logo">
+    <aside class="sidebar">
 
-        <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
-             class="logo"
-             alt="EduTrack Logo">
+        <div class="sidebar-logo">
 
-    </div>
+            <img src="{{ url_for('static', filename='images/edutrack-logo.png') }}"
+                 alt="EduTrack Logo">
 
-    <!-- ================= PAGE TITLE ================= -->
+        </div>
 
-    <section class="page-title">
+        <ul class="sidebar-menu">
 
-        <h2>
+            <li>
 
-            <i class="fa-solid fa-user-pen"></i>
+                <a href="{{ url_for('admin_dashboard') }}">
 
-            Edit Learner
-
-        </h2>
-
-        <p>
-
-            Update learner information and keep their learning profile
-            accurate and up to date.
-
-        </p>
-
-    </section>
-
-    <!-- ================= FORM ================= -->
-
-    <section class="form-container">
-
-        <form action="{{ url_for('edit_learner', id=learner['id']) }}"
-              method="POST">
-
-            <!-- Full Name -->
-
-            <label for="learner_name">
-
-                <i class="fa-solid fa-user"></i>
-
-                Full Name
-
-            </label>
-
-            <input
-                type="text"
-                id="learner_name"
-                name="learner_name"
-                value="{{ learner['name'] }}"
-                maxlength="100"
-                autocomplete="name"
-                required>
-
-            <!-- Email -->
-
-            <label for="learner_email">
-
-                <i class="fa-solid fa-envelope"></i>
-
-                Email Address
-
-            </label>
-
-            <input
-                type="email"
-                id="learner_email"
-                name="learner_email"
-                value="{{ learner['email'] }}"
-                autocomplete="email"
-                required>
-
-            <!-- Date of Birth -->
-
-            <label for="learner_dob">
-
-                <i class="fa-solid fa-calendar-days"></i>
-
-                Date of Birth
-
-            </label>
-
-            <input
-                type="date"
-                id="learner_dob"
-                name="learner_dob"
-                value="{{ learner['date_of_birth'] }}"
-                required>
-
-            <!-- Learning Path -->
-
-            <label for="learner_skill">
-
-                <i class="fa-solid fa-book-open"></i>
-
-                Learning Path
-
-            </label>
-
-            <select
-                id="learner_skill"
-                name="learner_skill"
-                required>
-
-                <option value="Python" {% if learner["skill"] == "Python" %}selected{% endif %}>Python</option>
-
-                <option value="Java" {% if learner["skill"] == "Java" %}selected{% endif %}>Java</option>
-
-                <option value="Full Stack Web Development" {% if learner["skill"] == "Full Stack Web Development" %}selected{% endif %}>
-                    Full Stack Web Development
-                </option>
-
-                <option value="AI & Machine Learning" {% if learner["skill"] == "AI & Machine Learning" %}selected{% endif %}>
-                    AI & Machine Learning
-                </option>
-
-                <option value="AWS Cloud" {% if learner["skill"] == "AWS Cloud" %}selected{% endif %}>
-                    AWS Cloud
-                </option>
-
-                <option value="SQL & Databases" {% if learner["skill"] == "SQL & Databases" %}selected{% endif %}>
-                    SQL & Databases
-                </option>
-
-                <option value="Data Science" {% if learner["skill"] == "Data Science" %}selected{% endif %}>
-                    Data Science
-                </option>
-
-                <option value="Cyber Security" {% if learner["skill"] == "Cyber Security" %}selected{% endif %}>
-                    Cyber Security
-                </option>
-
-            </select>
-
-            <!-- Level -->
-
-            <label for="learner_level">
-
-                <i class="fa-solid fa-chart-line"></i>
-
-                Skill Level
-
-            </label>
-
-            <select
-                id="learner_level"
-                name="learner_level"
-                required>
-
-                <option value="Beginner" {% if learner["level"] == "Beginner" %}selected{% endif %}>Beginner</option>
-
-                <option value="Intermediate" {% if learner["level"] == "Intermediate" %}selected{% endif %}>Intermediate</option>
-
-                <option value="Advanced" {% if learner["level"] == "Advanced" %}selected{% endif %}>Advanced</option>
-
-            </select>
-
-            <!-- Buttons -->
-
-            <div class="button-group">
-
-                <button
-                    type="submit"
-                    class="update-btn">
-
-                    <i class="fa-solid fa-floppy-disk"></i>
-
-                    Update Learner
-
-                </button>
-
-                <a href="{{ url_for('home') }}"
-                   class="outline-btn">
-
-                    <i class="fa-solid fa-arrow-left"></i>
+                    <i class="fa-solid fa-table-columns"></i>
 
                     Dashboard
 
                 </a>
 
-            </div>
+            </li>
 
-        </form>
+            <li>
 
-    </section>
+                <a href="{{ url_for('register_learner') }}">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                    Add Learner
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('export_csv') }}">
+
+                    <i class="fa-solid fa-file-csv"></i>
+
+                    Export CSV
+
+                </a>
+
+            </li>
+
+            <li>
+
+                <a href="{{ url_for('admin_logout') }}">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- ======================
+            MAIN CONTENT
+    ======================= -->
+
+    <main class="dashboard-content">
+
+        <!-- Header -->
+
+        <section class="page-header">
+
+            <h1>
+
+                <i class="fa-solid fa-user-pen"></i>
+
+                Edit Learner
+
+            </h1>
+
+            <p>
+
+                Update learner information and keep their learning profile accurate.
+
+            </p>
+
+        </section>
+
+        <!-- Form Card -->
+
+        <section class="profile-card">
+
+            <form action="{{ url_for('edit_learner', id=learner['id']) }}"
+                  method="POST">
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-user"></i>
+
+                        Full Name
+
+                    </label>
+
+                    <input
+                        type="text"
+                        name="learner_name"
+                        value="{{ learner['name'] }}"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        Email Address
+
+                    </label>
+
+                    <input
+                        type="email"
+                        name="learner_email"
+                        value="{{ learner['email'] }}"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                        Date of Birth
+
+                    </label>
+
+                    <input
+                        type="date"
+                        name="learner_dob"
+                        value="{{ learner['date_of_birth'] }}"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        Learning Path
+
+                    </label>
+
+                    <select
+                        name="learner_skill"
+                        required>
+
+                        <option value="Python" {% if learner["skill"]=="Python" %}selected{% endif %}>Python</option>
+
+                        <option value="Java" {% if learner["skill"]=="Java" %}selected{% endif %}>Java</option>
+
+                        <option value="Full Stack Web Development" {% if learner["skill"]=="Full Stack Web Development" %}selected{% endif %}>Full Stack Web Development</option>
+
+                        <option value="AI & Machine Learning" {% if learner["skill"]=="AI & Machine Learning" %}selected{% endif %}>AI & Machine Learning</option>
+
+                        <option value="AWS Cloud" {% if learner["skill"]=="AWS Cloud" %}selected{% endif %}>AWS Cloud</option>
+
+                        <option value="SQL & Databases" {% if learner["skill"]=="SQL & Databases" %}selected{% endif %}>SQL & Databases</option>
+
+                        <option value="Data Science" {% if learner["skill"]=="Data Science" %}selected{% endif %}>Data Science</option>
+
+                        <option value="Cyber Security" {% if learner["skill"]=="Cyber Security" %}selected{% endif %}>Cyber Security</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                        Skill Level
+
+                    </label>
+
+                    <select
+                        name="learner_level"
+                        required>
+
+                        <option value="Beginner" {% if learner["level"]=="Beginner" %}selected{% endif %}>Beginner</option>
+
+                        <option value="Intermediate" {% if learner["level"]=="Intermediate" %}selected{% endif %}>Intermediate</option>
+
+                        <option value="Advanced" {% if learner["level"]=="Advanced" %}selected{% endif %}>Advanced</option>
+
+                    </select>
+
+                </div>
+
+                <div class="edit-buttons">
+
+                    <button
+                        type="submit"
+                        class="save-btn">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Changes
+
+                    </button>
+
+                    <a href="{{ url_for('admin_dashboard') }}"
+                       class="cancel-btn">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        Back
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
 
 </div>
 
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-    <p>
-
-        © 2026 <strong>EduTrack</strong>
-
-        <br>
-
-        AI-Powered Learning Platform
-
-        <br><br>
-
-        Developed by <strong>Mashood Ahmed Shariff</strong>
-
-    </p>
-
-</footer>
-
 </body>
+
 </html>

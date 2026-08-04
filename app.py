@@ -43,6 +43,24 @@ def create_database():
 
     )
     """)
+    
+    # -------------------------------
+    # Admins Table
+    # -------------------------------
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS admins(
+
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        name TEXT NOT NULL,
+
+        email TEXT UNIQUE NOT NULL,
+
+        password TEXT NOT NULL
+
+    )
+    """)
 
     
     # -------------------------------
@@ -178,8 +196,32 @@ def create_database():
             )
             VALUES (?,?,?,?,?)
         """, instructors)
-            
-    
+
+    # -------------------------------
+    # Insert Default Admin
+    # -------------------------------
+
+    cursor.execute("SELECT COUNT(*) FROM admins")
+
+    if cursor.fetchone()[0] == 0:
+
+        cursor.execute("""
+            INSERT INTO admins
+            (
+                name,
+                email,
+                password
+            )
+            VALUES (?,?,?)
+        """, (
+
+            "Mashood Ahmed Shariff",
+
+            "admin@edutrack.com",
+
+            generate_password_hash("admin123")
+
+        ))
 
     connection.commit()
     connection.close()
@@ -194,8 +236,16 @@ def home():
     return render_template("landing.html")
 
 
+# -------------------------------
+# Admin Dashboard
+# -------------------------------
+
 @app.route("/admin/dashboard")
 def admin_dashboard():
+
+    # Check if admin is logged in
+    if "admin_id" not in session:
+        return redirect(url_for("admin_login"))
 
     connection = sqlite3.connect("database/edutrack.db")
     connection.row_factory = sqlite3.Row
@@ -204,6 +254,7 @@ def admin_dashboard():
     search_query = request.args.get("search")
 
     if search_query:
+
         cursor.execute("""
             SELECT * FROM learners
             WHERE name LIKE ?
@@ -214,7 +265,9 @@ def admin_dashboard():
             f"%{search_query}%",
             f"%{search_query}%"
         ))
+
     else:
+
         cursor.execute("SELECT * FROM learners")
 
     learners = cursor.fetchall()
@@ -257,6 +310,7 @@ def register_learner():
         learner_password = generate_password_hash(
             request.form["learner_password"]
         )
+
         learner_dob = request.form["learner_dob"]
         learner_skill = request.form["learner_skill"]
         learner_level = request.form["learner_level"]
@@ -267,11 +321,38 @@ def register_learner():
         connection = sqlite3.connect("database/edutrack.db")
         cursor = connection.cursor()
 
+        # Check duplicate email
+        cursor.execute(
+            "SELECT id FROM learners WHERE email=?",
+            (learner_email,)
+        )
+
+        existing = cursor.fetchone()
+
+        if existing:
+
+            connection.close()
+
+            return render_template(
+                "register.html",
+                error="This email is already registered."
+            )
+
         cursor.execute("""
             INSERT INTO learners
-            (name, email, password, date_of_birth, skill, level, points, joined_date)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (
+            (
+                name,
+                email,
+                password,
+                date_of_birth,
+                skill,
+                level,
+                points,
+                joined_date
+            )
+            VALUES (?,?,?,?,?,?,?,?)
+        """,(
+
             learner_name,
             learner_email,
             learner_password,
@@ -280,9 +361,11 @@ def register_learner():
             learner_level,
             points,
             joined_date
+
         ))
 
         connection.commit()
+
         connection.close()
 
         return redirect(url_for("learner_login"))
@@ -291,58 +374,67 @@ def register_learner():
 
 
 # -------------------------------
-# Edit Learner
+# Edit Learner Profile
 # -------------------------------
-@app.route("/edit/<int:id>", methods=["GET", "POST"])
-def edit_learner(id):
+
+@app.route("/learner/profile/edit", methods=["GET", "POST"])
+def edit_profile():
+
+    if "learner_id" not in session:
+        return redirect(url_for("learner_login"))
 
     connection = sqlite3.connect("database/edutrack.db")
     connection.row_factory = sqlite3.Row
     cursor = connection.cursor()
-
-    # Fetch learner details
-    cursor.execute("SELECT * FROM learners WHERE id = ?", (id,))
-    learner = cursor.fetchone()
 
     if request.method == "POST":
 
         learner_name = request.form["learner_name"]
         learner_email = request.form["learner_email"]
         learner_dob = request.form["learner_dob"]
-        learner_skill = request.form["learner_skill"]
-        learner_level = request.form["learner_level"]
 
         cursor.execute("""
             UPDATE learners
-            SET name = ?,
+            SET
+                name = ?,
                 email = ?,
-                date_of_birth = ?,
-                skill = ?,
-                level = ?
+                date_of_birth = ?
             WHERE id = ?
         """, (
             learner_name,
             learner_email,
             learner_dob,
-            learner_skill,
-            learner_level,
-            id
+            session["learner_id"]
         ))
 
         connection.commit()
+
         connection.close()
 
-        return redirect(url_for("admin_dashboard"))
+        return redirect(url_for("learner_profile"))
+
+    cursor.execute(
+        "SELECT * FROM learners WHERE id=?",
+        (session["learner_id"],)
+    )
+
+    learner = cursor.fetchone()
 
     connection.close()
 
-    return render_template("edit.html", learner=learner)
+    return render_template(
+        "edit_profile.html",
+        learner=learner
+    )
 
 # -------------------------------
 # Delete Learner
 # -------------------------------
 @app.route("/delete/<int:id>")
 def delete_learner(id):
+    
+    if "admin_id" not in session:
+        return redirect(url_for("admin_login"))
 
     # Connect to the EduTrack database
     connection = sqlite3.connect("database/edutrack.db")
@@ -371,6 +463,9 @@ def delete_learner(id):
 
 @app.route("/export")
 def export_csv():
+    
+    if "admin_id" not in session:
+        return redirect(url_for("admin_login"))
 
     # Connect to the EduTrack database
     connection = sqlite3.connect("database/edutrack.db")
@@ -484,13 +579,6 @@ def learner_dashboard():
         "learner_dashboard.html",
         learner=learner
     )
-    
-@app.route("/logout")
-def logout():
-
-    session.clear()
-
-    return redirect(url_for("home"))
 
 #-------------------------------
 # Learner Courses
@@ -730,11 +818,53 @@ def learner_profile():
         learner=learner
     )
     
-@app.route("/learner/profile/edit")
-def edit_profile():
+# -------------------------------
+# Admin Login
+# -------------------------------
 
-    if "learner_id" not in session:
-        return redirect(url_for("learner_login"))
+@app.route("/admin/login", methods=["GET", "POST"])
+def admin_login():
+
+    if request.method == "POST":
+
+        email = request.form["email"]
+        password = request.form["password"]
+
+        connection = sqlite3.connect("database/edutrack.db")
+        connection.row_factory = sqlite3.Row
+        cursor = connection.cursor()
+
+        cursor.execute(
+            "SELECT * FROM admins WHERE email=?",
+            (email,)
+        )
+
+        admin = cursor.fetchone()
+
+        connection.close()
+
+        if admin and check_password_hash(admin["password"], password):
+
+            session["admin_id"] = admin["id"]
+
+            return redirect(url_for("admin_dashboard"))
+
+        return render_template(
+            "admin_login.html",
+            error="Invalid Email or Password"
+        )
+
+    return render_template("admin_login.html")
+
+# -------------------------------
+# Edit Learner (Admin)
+# -------------------------------
+
+@app.route("/edit/<int:id>", methods=["GET", "POST"])
+def edit_learner(id):
+
+    if "admin_id" not in session:
+        return redirect(url_for("admin_login"))
 
     connection = sqlite3.connect("database/edutrack.db")
     connection.row_factory = sqlite3.Row
@@ -742,10 +872,42 @@ def edit_profile():
 
     cursor.execute(
         "SELECT * FROM learners WHERE id=?",
-        (session["learner_id"],)
+        (id,)
     )
 
     learner = cursor.fetchone()
+
+    if request.method == "POST":
+
+        learner_name = request.form["learner_name"]
+        learner_email = request.form["learner_email"]
+        learner_dob = request.form["learner_dob"]
+        learner_skill = request.form["learner_skill"]
+        learner_level = request.form["learner_level"]
+
+        cursor.execute("""
+            UPDATE learners
+            SET
+                name = ?,
+                email = ?,
+                date_of_birth = ?,
+                skill = ?,
+                level = ?
+            WHERE id = ?
+        """, (
+            learner_name,
+            learner_email,
+            learner_dob,
+            learner_skill,
+            learner_level,
+            id
+        ))
+
+        connection.commit()
+
+        connection.close()
+
+        return redirect(url_for("admin_dashboard"))
 
     connection.close()
 
@@ -753,6 +915,28 @@ def edit_profile():
         "edit.html",
         learner=learner
     )
+    
+# -------------------------------
+# Admin Logout
+# -------------------------------
+
+@app.route("/admin/logout")
+def admin_logout():
+
+    session.pop("admin_id", None)
+
+    return redirect(url_for("admin_login"))
+
+# -------------------------------
+# Learner Logout
+# -------------------------------
+
+@app.route("/learner/logout")
+def learner_logout():
+
+    session.pop("learner_id", None)
+
+    return redirect(url_for("learner_login"))
 # -------------------------------
 # Start the Flask application
 # -------------------------------

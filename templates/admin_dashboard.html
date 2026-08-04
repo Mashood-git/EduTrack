@@ -35,20 +35,27 @@
             <div class="profile-card">
 
                 <div class="profile-icon">
-
-                    <i class="fa-solid fa-user"></i>
-
+                    <i class="fa-solid fa-user-shield"></i>
                 </div>
 
                 <div>
 
-                    <h4>Mashood Ahmed Shariff</h4>
+                    <h4>Administrator</h4>
 
-                    <p>Administrator</p>
+                    <p>EduTrack Admin</p>
 
                 </div>
 
             </div>
+
+            <a href="{{ url_for('admin_logout') }}"
+            class="admin-logout-btn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </a>
 
         </div>
 
