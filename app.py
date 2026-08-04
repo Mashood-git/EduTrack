@@ -1,4 +1,5 @@
 # Import the required modules
+import os
 from werkzeug.security import generate_password_hash, check_password_hash
 import sqlite3
 import csv
@@ -16,6 +17,8 @@ app.secret_key = "EduTrack@2026!Mashood#Flask$123"
 # Create the database and students table
 # -------------------------------
 def create_database():
+    
+    os.makedirs("database", exist_ok=True)
 
     connection = sqlite3.connect("database/edutrack.db")
     cursor = connection.cursor()
