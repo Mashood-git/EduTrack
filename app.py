@@ -938,12 +938,15 @@ def learner_logout():
 
     return redirect(url_for("learner_login"))
 # -------------------------------
+# Create database when app starts
+# -------------------------------
+
+create_database()
+
+# -------------------------------
 # Start the Flask application
 # -------------------------------
+
 if __name__ == "__main__":
 
-    # Create the database and table before starting the server
-    create_database()
-
-    # Run the Flask development server
     app.run(debug=True)
