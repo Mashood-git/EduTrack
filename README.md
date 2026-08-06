@@ -12,6 +12,10 @@ An AI-Powered Learning Management System (LMS)
 Built using <strong>Flask • SQLite • HTML • CSS • JavaScript</strong>
 </p>
 
+<p align="center">
+🚀 <strong>Live Demo:</strong><br>
+https://edutrack-idj0.onrender.com
+</p>
 ---
 
 # 📖 About
